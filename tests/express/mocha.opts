@@ -1,0 +1,4 @@
+tests/express/*.mocha.js
+--recursive
+--reporter spec
+--ui bdd
