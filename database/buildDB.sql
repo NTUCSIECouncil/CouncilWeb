@@ -1,9 +1,13 @@
 CREATE DATABASE CouncilWeb;
 USE CouncilWeb;
 
+SET character_set_client = utf8mb4;
+SET character_set_results = utf8mb4;
+SET character_set_connection = utf8mb4;
+
 CREATE TABLE EventTags (
        TagID INT,
-       TagName TEXT
+       TagName NVARCHAR(100)
 );
 
 CREATE TABLE EventTagsRelation (
@@ -14,17 +18,17 @@ CREATE TABLE EventTagsRelation (
 
 CREATE TABLE Events (
        EventID INT,
-       EventName TINYTEXT,
+       EventName NVARCHAR(100),
        Priority TINYINT,
        PriorityUntil DATE,
        CreateDate DATETIME,
-       Creator TINYTEXT,
-       Content LONGTEXT
+       Creator NVARCHAR(100),
+       Content NVARCHAR(1000)
 );
 
 CREATE TABLE ProjectTags (
        TagID INT,
-       TagName TEXT
+       TagName NVARCHAR(100)
 );
 
 CREATE TABLE ProjectTagsRelation (
@@ -35,24 +39,24 @@ CREATE TABLE ProjectTagsRelation (
 
 CREATE TABLE Projects (
        ProjectID INT,
-       LabName TEXT,
-       Description LONGTEXT
+       LabName NVARCHAR(100),
+       Description NVARCHAR(2000)
 );
 
 CREATE TABLE Affairs (
        AffairID INT,
-       Applicant TINYTEXT,
+       Applicant NVARCHAR(100),
        ID VARCHAR(10),
-       ApplyService TINYTEXT,
+       ApplyService NVARCHAR(100),
        ApplyDate DATETIME,
        ProcessDate DATETIME,
-       ProcessName TINYTEXT,
-       Comments TEXT
+       ProcessName NVARCHAR(100),
+       Comments NVARCHAR(500)
 );
 
 CREATE TABLE AlbumTags (
        TagID INT,
-       TagName TEXT
+       TagName NVARCHAR(100)
 );
 
 CREATE TABLE AlbumTagsRelation (
@@ -63,9 +67,9 @@ CREATE TABLE AlbumTagsRelation (
 
 CREATE TABLE Albums (
        AlbumID INT,
-       AlbumName TINYTEXT,
+       AlbumName NVARCHAR(200),
        URL VARCHAR(2083),
        CoverImg LONGBLOB,
        CreateDate DATETIME,
-       Creator TINYTEXT
+       Creator NVARCHAR(100)
 );

@@ -1,9 +1,9 @@
-var indexRouter = require('./index');
-var usersRouter = require('./users');
+var index = require('./index');
+var admin = require('./admin');
 
 module.exports = app => {
-    app.use('/', indexRouter);
-    app.use('/users', usersRouter);
-
+    app.use('/', index);
+    app.use('/admin', admin);
+    
     return app;
 };

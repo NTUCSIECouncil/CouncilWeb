@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title><%= title %></title>
-    </head>
-    <body>
-        <h1><%= title %></h1>
-        <div id="app"></div>
-        <script src="/javascripts/index.vue.js"></script>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h2>Projects</h2>
+    <table>
+      <tr>
+        <th>ProjectID</th>
+        <th>LabName</th>
+        <th>Description</th>
+      </tr>
+      <% for ( var i = 0 ; i < data.length ; i++){ %>
+         <tr>
+           <td>
+             <%= data[i].ProjectID  %>
+           </td>
+           <td>
+             <%= data[i].LabName  %>
+           </td>
+           <td>
+             <%= data[i].Description  %>
+           </td>
+         </tr>
+         <% } %>
+    </table>
+    <script src="/javascripts/index.vue.js"></script>
+  </body>
 </html>
