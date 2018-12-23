@@ -35,4 +35,9 @@ node_modules/
 # public file
 public/javascripts/*
 
+# password
+password.json
+
 .vscode
+
+

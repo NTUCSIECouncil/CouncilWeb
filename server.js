@@ -13,12 +13,8 @@ var app = express();
 
 // DataBase
 var mysql = require("mysql");
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "CouncilWeb"    
-});
+var password = require('./password.json');
+var con = mysql.createConnection(password);
 
 con.connect(function(err) {
     if (err) {
