@@ -11,6 +11,23 @@ var helmet          = require('helmet');
 var express = require('express');
 var app = express();
 
+// DataBase
+var mysql = require("mysql");
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "CouncilWeb"    
+});
+
+con.connect(function(err) {
+    if (err) {
+	console.log('connecting error');
+	return;
+    }
+    console.log('connecting success');
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views/ejs'));
 app.set('view engine', 'ejs');
@@ -26,6 +43,14 @@ app.use(helmet());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// db state
+//app.set('con', con);
+app.use(function(req, res, next) {
+    req.con = con;
+    console.log('req.con');
+    next();    
+});
+
 /**
  * Set webpack and routes.
  */
@@ -33,7 +58,9 @@ app = require('./webpack/set')(app);
 app = require('./routes/set')(app);
 
 // catch and forward to root
-app.use(function(req, res) { res.redirect('/'); });
+app.use(function(req, res) {
+    res.redirect('/');
+});
 
 /**
  * Get port from environment and store in Express.
@@ -41,6 +68,7 @@ app.use(function(req, res) { res.redirect('/'); });
 
 var port = config.port;
 app.set('port', port);
+console.log('localhost:'+port);
 
 /**
  * Create HTTP server and,
