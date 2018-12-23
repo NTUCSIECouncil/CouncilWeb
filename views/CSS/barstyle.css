@@ -1,0 +1,60 @@
+#frontpage{
+    background-color: darkgray;
+    width:16.666667%;
+    height:5%;
+    position: fixed;
+    left: 0%;
+    bottom: 0%;
+    color: black;
+    font-size: large;
+}
+#news{
+    background-color: darkgray;
+    width:16.666667%;
+    height:5%;
+    position: fixed;
+    left: 16.666667%;
+    bottom: 0%;
+    color: black;
+    font-size: large;
+}
+#mylocker{
+    background-color: darkgray;
+    width:16.7%;
+    height:5%;
+    position: fixed;
+    left: 33.333334%;
+    bottom: 0%;
+    color: black;
+    font-size: large;
+}
+#project{
+    background-color: darkgray;
+    width:16.666667%;
+    height:5%;
+    position: fixed;
+    left: 50%;
+    bottom: 0%;
+    color: black;
+    font-size: large;
+}
+#photo{
+    background-color: darkgray;
+    width:16.666667%;
+    height:5%;
+    position: fixed;
+    left: 66.666667%;
+    bottom: 0%;
+    color: black;
+    font-size: large;
+}
+#intro{
+    background-color: darkgray;
+    width:16.666667%;
+    height:5%;
+    position: fixed;
+    left: 83.333334%;
+    bottom: 0%;
+    color: black;
+    font-size: large;
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html style="height: 580vh">
+    <head>
+        <title>NTU CSIE WEB</title>
+        <link rel="stylesheet" href="../CSS/news.css">
+        <link rel="stylesheet" href="../CSS/barstyle.css">
+        <link rel="stylesheet" href="../CSS/textstyle.css">
+        <link rel="stylesheet" href="../CSS/photopage.css">
+        
+        <!--
+        <script src="../Javascripts/ajax.js"></script>
+        <script src="../Javascripts/scroll.js"></script>
+        -->
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+        $(function(){
+            var $frontpage = $('#frontpage'),
+                $news = $('#news'),
+                $mylocker = $('#mylocker'),
+                $project = $('#project'),
+                $photo = $('#photo'),
+                $intro = $('#intro'),
+                gospeed = 800;
+            $frontpage.click(function(e){
+                $('html,body').animate({scrollTop:0},gospeed);
+            });
+            $news.click(function(e){
+                $('html,body').animate({scrollTop:614},gospeed);
+            });
+            $mylocker.click(function(e){
+                $('html,body').animate({scrollTop:1196},gospeed);
+            });
+            $project.click(function(e){
+                $('html,body').animate({scrollTop:1781},gospeed);
+            });
+            $photo.click(function(e){
+                $('html,body').animate({scrollTop:2365},gospeed);
+            });
+            $intro.click(function(e){
+                $('html,body').animate({scrollTop:3080},gospeed);
+            });
+        });
+        </script>
+    </head>
+    <body style="margin: 0;padding: 0;">
+        <ul id=csie>
+            <h1><big><big><big><big><big>CSIE</big></big></big></big></big></h1>
+        </ul>
+        <div style="width: 100vw;height: 95vh;float:left;background-color:black;color:white">
+            <p style="margin-top: 0">
+                visitor@csie.ntu.edu.tw [~]
+            </p>
+        </div>
+        <a id="frontpage">
+            <p style="margin-top: 0">
+                front page
+            </p>
+        </a>
+        <a id="news">
+            <p style="margin-top: 0">
+                news
+            </p>
+        </a>
+        <a id="mylocker">
+            <p style="margin-top: 0">
+                my_locker
+            </p>
+        </a>
+        <a id="project">
+            <p style="margin-top: 0">
+                project
+            </p>
+        </a>
+        <a id="photo">
+            <p style="margin-top: 0">
+                photo
+            </p>
+        </a>
+        <a id="intro">
+            <p style="margin-top: 0">
+                intro
+            </p>
+        </a>
+        <!--首頁-->
+        <div style="width: 100vw;height: 95vh;float:left">
+            <table border="0"; style="width: 70vw;" id="newstable">
+                <thead>
+                    <tr>
+                        <th class="col_1">類別</th>
+                        <th class="col_2">標題</th>
+                        <th class="col_3">發佈日期</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td align="center" valign="center" class="col_1">學術部</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="新生ACM開放報名">新生ACM開放報名</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-27</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">活動部</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="2018台大師大十系聯合冬季舞會">2018台大師大十系聯合冬季舞會</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-25</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">活動部</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="2018台大師大十系聯合冬季舞會">2018台大師大十系聯合冬季舞會</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-25</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">活動部</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="2018台大師大十系聯合冬季舞會">2018台大師大十系聯合冬季舞會</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-25</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">活動部</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="2018台大師大十系聯合冬季舞會">2018台大師大十系聯合冬季舞會</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-25</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">活動部</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="2018台大師大十系聯合冬季舞會">2018台大師大十系聯合冬季舞會</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-25</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">活動部</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="2018台大師大十系聯合冬季舞會">2018台大師大十系聯合冬季舞會</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-25</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">活動部</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="2018台大師大十系聯合冬季舞會">2018台大師大十系聯合冬季舞會</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-25</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">活動部</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="2018台大師大十系聯合冬季舞會">2018台大師大十系聯合冬季舞會</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-25</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">活動部</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="2018台大師大十系聯合冬季舞會">2018台大師大十系聯合冬季舞會</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-25</td>
+                    </tr>
+                    <tr>
+                        <td><button class="button_news previous" onclick="previouspage()">上一頁</button></td>
+                        <td><button class="button_news next" onclick="nextpage()">下一頁</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--fisrt page-->
+        <div style="width: 100vw;height: 95vh;float:left;color:white;background-color: black">
+            <h1 style="margin-top: 0">
+                My locker
+            </h1>
+        </div>
+        <!--second page-->
+        <div style="width: 100vw;height: 95vh;float:left;">
+            <table border="0"; style="width: 70vw">
+                <thead>
+                    <tr>
+                        <th class="col_1">作者</th>
+                        <th class="col_2">標題</th>
+                        <th class="col_3">發佈日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">林XX</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="CSIEWEB">CSIEWEB</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-27</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="center" class="col_1">劉XX</td>
+                        <td align="center" valign="center" class="col_2">
+                        <a title="JUDGEGIRL">JUDGEGIRL</a>
+                        </td>
+                        <td align="center" valign="center" class="col_3">2018-10-24</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--third page-->
+        <div style="width: 100vw;height: 95vh;float:left;">
+            <table class="photo_HOME">
+                <tr>
+                    <td class="cell">
+                    <a href="https://i.imgur.com/1TBBvKj.jpg">
+                        <img src="https://i.imgur.com/1TBBvKj.jpg"></a>
+                    </td>
+                    <td class="cell"></td>
+                </tr>
+                <tr>
+                    <td class="cell"></td>
+                    <td class="cell"></td>
+                </tr>
+            </table>
+        </div>
+        <!--forth page-->
+        <div style="width: 100vw;height: 95vh;float:left;">
+            <div style="width: 20vw;float:left;">
+                <h3>
+                    系所介紹
+                </h3>
+                <p>子項目1</p>
+                <p>子項目2</p>
+                <h3 >
+                    系學會各部門介紹
+                </h3>
+                <p>活動部</p>
+                <p>學術部</p>
+                <p>體育部</p>
+                <p>公關部</p>
+                <p>事務部</p>
+                <p>美宣部</p>
+                <h3>
+                    相關網站
+                </h3>
+                <p>
+                    <a href="https://www.facebook.com/NTU.CSIE.Council/">系學會粉專</a>
+                </p>
+                <p>
+                    <a href="https://www.csie.ntu.edu.tw/">台大資工官網</a>
+                </p>
+            </div>
+            <div style="width:80vw">
+                <h2>
+                    活動部
+                </h2>
+                <h3>介紹</h3>
+                <p>AAAAABBBCCCDDEFEFVFEFFERFVFEFVFEWEVF</p>
+                <table border="1" style="width: 60vw">
+                    <thead>
+                        <h3>成員</h3>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>成員1</td>
+                            <td>成員2</td>
+                        </tr>
+                        <tr>
+                            <td>成員3</td>
+                            <td>成員4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--fifth page-->
+    </body>
+</html>
