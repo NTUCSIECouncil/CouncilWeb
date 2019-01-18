@@ -3,16 +3,39 @@ var app = express();
 var router = express.Router();
 
 //render: ../../views/ejs
-router.get('/', function(req, res, next) {
-    var db = req.con;
-    db.query('SELECT * FROM Projects', function(err, rows) {
-        if (err) {
-            console.log(err);
-        }
-        var data = rows;
-        // use index.ejs
-        res.render('index', { title: 'Projects Test', data: data});
+router
+    .get('/', function(req, res, next) {
+	var db = req.con;
+	var title = 'Projects Test';
+	db.query('SELECT * FROM Projects', function(err, projects) {
+            if (err) {console.log(err); return; }
+	    res.render('index', { title: title, data: projects});
+	});
+    })
+    .get('/projects', function(req, res, next) {
+	var db = req.con;
+	var title = 'Projects Test';
+	db.query('SELECT * FROM Projects', function(err, projects) {
+            if (err) {console.log(err); return; }
+	    res.render('projects', { title: title, data: projects});
+	});
+    })
+    .get('/events', function(req, res, next) {
+	var db = req.con;
+	var title = 'Events Test';
+	db.query('SELECT * FROM Events', function(err, events) {
+            if (err) {console.log(err); return; }
+	    res.render('events', { title: title, data: events});
+	});
+    })
+    .get('/albums', function(req, res, next) {
+	var db = req.con;
+	var title = 'Albums Test';
+	db.query('SELECT * FROM Albums', function(err, albums) {
+            if (err) {console.log(err); return; }
+	    res.render('album', { title: title, data: albums});
+	});
     });
-});
+
 
 module.exports = router;

@@ -6,23 +6,28 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <h2>Projects</h2>
+    <h2>Events</h2>
     <table>
       <tr>
-        <th>ProjectID</th>
-        <th>LabName</th>
-        <th>Description</th>
+        <th>EventID</th>
+        <th>EventName</th>
+        <th>Priority</th>
+        <th>CreateDate</th>
+        <th>Content</th>
       </tr>
       <% for ( var i = 0 ; i < data.length ; i++){ %>
          <tr>
            <td>
-             <%= data[i].ProjectID  %>
+             <%= data[i].EventID  %>
            </td>
            <td>
-             <%= data[i].LabName  %>
+             <%= data[i].EventName  %>
            </td>
            <td>
-             <%= data[i].Description  %>
+             <%= data[i].CreateDate  %>
+           </td>
+           <td>
+             <%= data[i].Content  %>
            </td>
          </tr>
          <% } %>

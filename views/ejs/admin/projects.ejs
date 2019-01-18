@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <h1><%= title %></h1>
+    <h2>Projects</h2>
+    <table>
+      <tr>
+	<th></th>
+	<th></th>
+        <th>ID</th>
+        <th>LabName</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+	<form name="addproject" action="projects/add" method="post" accept-charset="utf-8" >
+          <td><input type="submit" value="Add"></td>
+	  <td><input type="reset" value="Reset"></td>
+	  <td></td>
+          <td><input type="text" name="LabName" placeholder="labname"></td>
+	  <td><textarea name="Description" placeholder="description"></textarea></td>
+	</form>
+      </tr>
+      <% for ( var i = 0 ; i < data.length ; i++){ %>
+         <tr>
+	   <td>
+	     <form name="project" action="projects/delete" method="post" accept-charset="utf-8" >
+	       <input type="hidden" name="del" value=<%= data[i].ProjectID  %> >
+	       <input type="submit" value="Delete">
+	     </form>
+	   </td>
+	   <td>
+	     <form name="project" action="projects/<%= data[i].ProjectID  %>"
+		   method="get" accept-charset="utf-8" >
+	       <input type="submit" value="Modify">
+	     </form>
+	   </td>
+           <td><%= data[i].ProjectID  %></td>
+           <td><%= data[i].LabName  %></td>
+	   <td><%= data[i].Description  %></td>
+         </tr>
+         <% } %>
+    </table>
+</form>
+</body>
+
+</html>

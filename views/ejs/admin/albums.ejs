@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <form name="addalbum" action="add" method="post" accept-charset="utf-8" >
+      <h1><%= title %></h1>
+      <div>
+        <label>creater: </label>
+	<input type="text" name="creater" placeholder="creater">
+      </div>
+      <div>
+        <label>album name: </label>
+        <input type="text" name="albumname" placeholder="albumname">
+      </div>
+      <div>
+        <label>album url: </label>
+	<input type="text" name="url" placeholder="url">
+      </div>
+      <div>
+        <label>cover img: </label>
+	<input type="file" name="img">
+      </div>
+      <div>
+        <input type='submit' value='Submit'>
+        <input type='reset' value='Reset'>
+        <input type='button' value='Back' onclick="javascript: location.href='/'">
+      </div>
+    </form>
+  </body>
+
+</html>

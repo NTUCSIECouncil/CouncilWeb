@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.set('con', con);
 app.use(function(req, res, next) {
     req.con = con;
-    console.log('req.con');
+    //console.log('req.con');
     next();    
 });
 
@@ -54,9 +54,11 @@ app = require('./webpack/set')(app);
 app = require('./routes/set')(app);
 
 // catch and forward to root
+/*
 app.use(function(req, res) {
     res.redirect('/');
 });
+*/
 
 /**
  * Get port from environment and store in Express.
