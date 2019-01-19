@@ -7,16 +7,16 @@
 
   <body>
     <form name="modifyproject" action="modify" method="post" accept-charset="utf-8" >
-    <input type="hidden" name="ProjectID" value="<%= data.ProjectID %>">
+    <input type="hidden" name="ProjectID" value="<%= Projects.ProjectID %>">
       <h1><%= title %></h1>
       <div>
         <label>labname: </label>
-        <input type="text" name="LabName" value="<%= data.LabName %>" placeholder="<%= data.LabName %>">
+        <input type="text" name="LabName" value="<%= Projects.LabName %>" placeholder="<%= Projects.LabName %>">
       </div>
       <div>
         <label>description: </label>
-	<textarea name="Description" value="<%= data.Description %>"
-		  placeholder="<%= data.Description %>"><%= data.Description %></textarea>
+	<textarea name="Description" value="<%= Projects.Description %>"
+		  placeholder="<%= Projects.Description %>"><%= Projects.Description %></textarea>
       </div>
       <div>
         <input type="submit" value="Submit">

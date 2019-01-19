@@ -17,7 +17,7 @@ router
 	var title = 'Projects Test';
 	db.query('SELECT * FROM Projects', function(err, projects) {
             if (err) {console.log(err); return; }
-	    res.render('projects', { title: title, data: projects});
+	    res.render('projects', { title: title, Projects: projects});
 	});
     })
     .get('/events', function(req, res, next) {
@@ -25,7 +25,7 @@ router
 	var title = 'Events Test';
 	db.query('SELECT * FROM Events', function(err, events) {
             if (err) {console.log(err); return; }
-	    res.render('events', { title: title, data: events});
+	    res.render('events', { title: title, Events: events});
 	});
     })
     .get('/albums', function(req, res, next) {
@@ -33,7 +33,7 @@ router
 	var title = 'Albums Test';
 	db.query('SELECT * FROM Albums', function(err, albums) {
             if (err) {console.log(err); return; }
-	    res.render('album', { title: title, data: albums});
+	    res.render('albums', { title: title, Albums: albums});
 	});
     });
 

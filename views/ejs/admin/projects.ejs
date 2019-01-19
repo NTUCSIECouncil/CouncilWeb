@@ -25,23 +25,23 @@
 	  <td><textarea name="Description" placeholder="description"></textarea></td>
 	</form>
       </tr>
-      <% for ( var i = 0 ; i < data.length ; i++){ %>
+      <% for ( var i = 0 ; i < Projects.length ; i++){ %>
          <tr>
 	   <td>
 	     <form name="project" action="projects/delete" method="post" accept-charset="utf-8" >
-	       <input type="hidden" name="del" value=<%= data[i].ProjectID  %> >
+	       <input type="hidden" name="del" value=<%= Projects[i].ProjectID  %> >
 	       <input type="submit" value="Delete">
 	     </form>
 	   </td>
 	   <td>
-	     <form name="project" action="projects/<%= data[i].ProjectID  %>"
+	     <form name="project" action="projects/<%= Projects[i].ProjectID  %>"
 		   method="get" accept-charset="utf-8" >
 	       <input type="submit" value="Modify">
 	     </form>
 	   </td>
-           <td><%= data[i].ProjectID  %></td>
-           <td><%= data[i].LabName  %></td>
-	   <td><%= data[i].Description  %></td>
+           <td><%= Projects[i].ProjectID  %></td>
+           <td><%= Projects[i].LabName  %></td>
+	   <td><%= Projects[i].Description  %></td>
          </tr>
          <% } %>
     </table>

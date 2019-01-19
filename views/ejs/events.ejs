@@ -15,19 +15,19 @@
         <th>CreateDate</th>
         <th>Content</th>
       </tr>
-      <% for ( var i = 0 ; i < data.length ; i++){ %>
+      <% for ( var i = 0 ; i < Events.length ; i++){ %>
          <tr>
            <td>
-             <%= data[i].EventID  %>
+             <%= Events[i].EventID  %>
            </td>
            <td>
-             <%= data[i].EventName  %>
+             <%= Events[i].EventName  %>
            </td>
            <td>
-             <%= data[i].CreateDate  %>
+             <%= Events[i].CreateDate  %>
            </td>
            <td>
-             <%= data[i].Content  %>
+             <%= Events[i].Content  %>
            </td>
          </tr>
          <% } %>

@@ -13,16 +13,16 @@
         <th>LabName</th>
         <th>Description</th>
       </tr>
-      <% for ( var i = 0 ; i < data.length ; i++){ %>
+      <% for ( var i = 0 ; i < Projects.length ; i++){ %>
          <tr>
            <td>
-             <%= data[i].ProjectID  %>
+             <%= Projects[i].ProjectID  %>
            </td>
            <td>
-             <%= data[i].LabName  %>
+             <%= Projects[i].LabName  %>
            </td>
            <td>
-             <%= data[i].Description  %>
+             <%= Projects[i].Description  %>
            </td>
          </tr>
          <% } %>

@@ -69,7 +69,7 @@ CREATE TABLE Albums (
        AlbumID INT,
        AlbumName NVARCHAR(200),
        URL VARCHAR(2083),
-       CoverImg LONGBLOB,
+       CoverImg NVARCHAR(200),
        CreateDate DATETIME,
        Creator NVARCHAR(100)
 );

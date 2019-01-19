@@ -13,24 +13,24 @@
         <th>AlbumName</th>
         <th>CoverImg</th>
         <th>CreateDate</th>
-        <th>Creater</th>
+        <th>Creator</th>
       </tr>
-      <% for ( var i = 0 ; i < data.length ; i++){ %>
+      <% for ( var i = 0 ; i < Albums.length ; i++){ %>
          <tr>
            <td>
-             <%= data[i].AlbumID  %>
+             <%= Albums[i].AlbumID  %>
            </td>
            <td>
-	     <a href= "<%= data[i].URL %>"><%= data[i].AlbumName  %></a>
+	     <a href="<%= Albums[i].URL %>"><%= Albums[i].AlbumName  %></a>
            </td>
            <td>
-             <%= data[i].CoverImg  %>
+	     <img src="/static/img/<%= Albums[i].CoverImg  %>" alt="<%= Albums[i].AlbumID  %>-coverImg" height="100">
            </td>
            <td>
-             <%= data[i].CreateDate  %>
+             <%= Albums[i].CreateDate  %>
            </td>
            <td>
-             <%= data[i].Creater  %>
+             <%= Albums[i].Creator  %>
            </td>
          </tr>
          <% } %>

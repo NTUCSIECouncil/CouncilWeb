@@ -1,5 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var multer  = require('multer');
+var path = require('path');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb){
+        cb(null, path.join(__basedir, '/public/img'))
+    },
+    filename: function (req, file, cb){
+        cb(null, Date.now()+file.originalname)
+    }
+});
+var upload = multer({storage: storage});
 
 router
     .get('/',function(req,res){
@@ -44,7 +55,7 @@ router
 	var db = req.con;
 	db.query('SELECT * FROM Projects', function(err, data) {
             if (err) console.log(err);
-	    res.render('admin/projects', { title: 'Admin Project', data: data});
+	    res.render('admin/projects', { title: 'Admin Project', Projects: data});
 	});
     })
     .post('/projects/delete', function(req, res){
@@ -81,7 +92,7 @@ router
 	var db = req.con;
 	db.query("SELECT * FROM Projects WHERE ProjectID = ?", req.params.id, function(err, data) {
             if (err) console.log(err);
-	    res.render('admin/modify/projects', { title: 'Modify Project', data: data[0] });
+	    res.render('admin/modify/projects', { title: 'Modify Project', Projects: data[0] });
 	});
     })
     .post('/projects/modify', function(req, res){
@@ -101,7 +112,7 @@ router
     .get('/albums/add', function(req, res){ 
 	res.render('admin/add/albums', { title: 'Add Albums'});
     })
-    .post('/albums/add', function(req, res){
+    .post('/albums/add', upload.single("CoverImg"), function(req, res){
 	var db = req.con;
 	db.query('SELECT * FROM Albums', function(err, data) {
             if (err) console.log(err);
@@ -111,7 +122,7 @@ router
 		AlbumID: id,
 		AlbumName: req.body.AlbumName,
 		URL: req.body.URL,
-		CoverImg: req.body.CoverImg
+		CoverImg: req.file.filename
 	    };
 	    db.query('INSERT INTO Albums SET ?', sql, function(err, rows) {
 		if (err) console.log(err);
