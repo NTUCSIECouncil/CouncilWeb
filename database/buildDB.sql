@@ -73,3 +73,11 @@ CREATE TABLE Albums (
        CreateDate DATETIME,
        Creator NVARCHAR(100)
 );
+
+CREATE TABLE Accounts (
+       id int(11) NOT NULL,
+       username varchar(50) NOT NULL,
+       password varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2;
+ALTER TABLE Accounts ADD PRIMARY KEY (id);
+ALTER TABLE Accounts MODIFY id int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;

@@ -8,6 +8,8 @@ var debug           = require('debug')('express-vue:server');
 var cookieParser    = require('cookie-parser');
 var helmet          = require('helmet');
 
+global.__basedir = __dirname;
+
 var express = require('express');
 var app = express();
 
@@ -23,6 +25,14 @@ con.connect(function(err) {
     }
     console.log('connecting success');
 });
+
+var session = require('express-session');
+app.use(session({
+    secret: 'councilweb',
+    resave: true,
+    saveUninitialized: true
+}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views/ejs'));

@@ -13,11 +13,13 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 
 router
-    .get('/',function(req,res){
-	res.send('admin get');
-    })
-    .post('/',function(req,res){
-	res.send('admin post');
+    .use('/', function(req, res, next){
+	//original path: req._parsedOriginalUrl.pathname
+	if (req.session.loggedin) {
+	    next();
+	} else {
+	    res.redirect('/login');
+	}
     })
 
     .get('/events/add', function(req, res){
