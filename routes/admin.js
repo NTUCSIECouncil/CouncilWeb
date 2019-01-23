@@ -1,19 +1,49 @@
 var express = require('express');
 var router = express.Router();
+var multer  = require('multer');
+var path = require('path');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb){
+        cb(null, path.join(__basedir, '/public/img'))
+    },
+    filename: function (req, file, cb){
+        cb(null, Date.now()+file.originalname)
+    }
+});
+var upload = multer({storage: storage});
 
 router
-    .get('/',function(req,res){
-	res.send('admin get');
-    })
-    .post('/',function(req,res){
-	res.send('admin post');
+    .use('/', function(req, res, next){
+	//original path: req._parsedOriginalUrl.pathname
+	if (req.session.loggedin) {
+	    next();
+	} else {
+	    res.redirect('/login');
+	}
     })
 
-    .get('/events', function(req, res){
-	res.send('events get');
+    .get('/events/add', function(req, res){
+	res.render('admin/add/events', { title: 'Add Events'});
     })
-    .post('/events', function(req, res){
-	res.send('events post');
+    .post('/events/add', function(req, res){
+	var db = req.con;
+	db.query('SELECT * FROM Events', function(err, data) {
+            if (err) console.log(err);
+	    var id = 1;
+	    var date = new Date().toISOString().slice(0, 19).replace('T', ' ');;
+	    if (data.length != 0) id = data[data.length-1].EventID + 1;
+	    var sql = {
+		EventID: id,
+		EventName: req.body.EventName,
+		CreateDate: date,
+		Content: req.body.Content
+	    };
+	    db.query('INSERT INTO Events SET ?', sql, function(err, rows) {
+		if (err) console.log(err);
+		res.setHeader('Content-Type', 'application/json');
+		res.redirect('/events');
+	    });
+	});
     })
 
     .get('/events/:id', function(req, res){
@@ -24,44 +54,84 @@ router
     })
 
     .get('/projects', function(req, res){
-	res.render('projects', { title: 'Add Project'});
-    })
-    .post('/projects', function(req, res){
-	//res.send('projects post');
-
 	var db = req.con;
-
-	db.query('SELECT * FROM Projects', function(err, rows) {
+	db.query('SELECT * FROM Projects', function(err, data) {
             if (err) console.log(err);
-            var data = rows;
-	    var id = data[data.length-1].ProjectID + 1;
-
+	    res.render('admin/projects', { title: 'Admin Project', Projects: data});
+	});
+    })
+    .post('/projects/delete', function(req, res){
+	var db = req.con;
+	var del = req.body.del;
+	db.query("DELETE FROM Projects WHERE ProjectID = ?", del, function(err) {
+	    if (err) console.log(err);
+	});
+	res.redirect('/admin/projects');
+    })
+    .get('/projects/add', function(req, res){
+	res.render('admin/add/projects', { title: 'Add Project'});
+    })
+    .post('/projects/add', function(req, res){
+	var db = req.con;
+	db.query('SELECT * FROM Projects', function(err, data) {
+            if (err) console.log(err);
+	    var id = 1;
+	    if (data.length != 0) id = data[data.length-1].ProjectID + 1;
 	    var sql = {
 		ProjectID: id,
-		Labname: req.body.labname,
-		Description: req.body.description
+		LabName: req.body.LabName,
+		Description: req.body.Description
 	    };
-	    var qur = db.query('INSERT INTO Projects SET ?', sql, function(err, rows) {
+	    db.query('INSERT INTO Projects SET ?', sql, function(err, rows) {
 		if (err) console.log(err);
 		res.setHeader('Content-Type', 'application/json');
-		res.redirect('/');
+		res.redirect('/admin/projects');
 	    });
 	});
-	
     })
 
     .get('/projects/:id', function(req, res){
-	res.send('projects get' + req.params.id);
+	var db = req.con;
+	db.query("SELECT * FROM Projects WHERE ProjectID = ?", req.params.id, function(err, data) {
+            if (err) console.log(err);
+	    res.render('admin/modify/projects', { title: 'Modify Project', Projects: data[0] });
+	});
     })
-    .post('/projects/:id', function(req, res){
-	res.send('projects post' + req.params.id);
+    .post('/projects/modify', function(req, res){
+	var db = req.con;
+	var sql = {
+	    ProjectID: req.body.ProjectID,
+	    LabName: req.body.LabName,
+	    Description: req.body.Description
+	};
+	db.query('UPDATE Projects SET ? WHERE ProjectID = ?', [sql, sql.ProjectID], function(err, rows) {
+	    if (err) {console.log(err); return;}
+	    res.setHeader('Content-Type', 'application/json');
+	    res.redirect('/admin/projects');
+	});
     })
 
-    .get('/albums', function(req, res){ 
-	res.send('albums get');
+    .get('/albums/add', function(req, res){ 
+	res.render('admin/add/albums', { title: 'Add Albums'});
     })
-    .post('/albums', function(req, res){
-	res.send('albums post');
+    .post('/albums/add', upload.single("CoverImg"), function(req, res){
+	var db = req.con;
+	db.query('SELECT * FROM Albums', function(err, data) {
+            if (err) console.log(err);
+	    var id = 1;
+	    if (data.length != 0) id = data[data.length-1].AlbumID + 1;
+	    var sql = {
+		AlbumID: id,
+		AlbumName: req.body.AlbumName,
+		URL: req.body.URL,
+		CoverImg: req.file.filename
+	    };
+	    db.query('INSERT INTO Albums SET ?', sql, function(err, rows) {
+		if (err) console.log(err);
+		res.setHeader('Content-Type', 'application/json');
+		res.redirect('/albums');
+	    });
+	});
     });
 
 

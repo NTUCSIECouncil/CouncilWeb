@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+      function toggle(i) {
+      $(".toggle" + i).toggle();
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1><%= title %></h1>
+    <h2>Projects</h2>
+    <table>
+      <tr>
+	<th></th>
+	<th></th>
+        <th>ID</th>
+        <th>LabName</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+	<form name="addproject" action="projects/add" method="post" accept-charset="utf-8" >
+          <td><input type="submit" value="Add"></td>
+	  <td><input type="reset" value="Reset"></td>
+	  <td></td>
+          <td><input type="text" name="LabName" placeholder="labname"></td>
+	  <td><textarea name="Description" placeholder="description"></textarea></td>
+	</form>
+      </tr>
+      <% for ( var i = 0 ; i < Projects.length ; i++){ %>
+         <tr class="toggle<%= Projects[i].ProjectID  %>">
+	   <td>
+	     <form name="project" action="projects/delete" method="post" accept-charset="utf-8" >
+	       <input type="hidden" name="del" value=<%= Projects[i].ProjectID  %> >
+	       <input type="submit" value="Delete">
+	     </form>
+	   </td>
+	   <td>
+	     <button onclick="toggle(<%= Projects[i].ProjectID  %>)">Modify</button>
+	   </td>
+           <td><%= Projects[i].ProjectID  %></td>
+           <td><%= Projects[i].LabName  %></td>
+	   <td><%= Projects[i].Description  %></td>
+	 </tr>
+	 
+         <tr class="toggle<%= Projects[i].ProjectID  %>" style="display:none">
+	   <td>
+	     <form name="project" action="projects/delete" method="post" accept-charset="utf-8" >
+	       <input type="hidden" name="del" value=<%= Projects[i].ProjectID  %> >
+	       <input type="submit" value="Delete">
+	     </form>
+	   </td>
+	   <form name="project-set<%= Projects[i].ProjectID  %>" action="projects/modify"
+		 method="post" accept-charset="utf-8">
+	     <td><input type="submit" value="Set"></td>
+	     <td>
+	       <input type="hidden" name="ProjectID" value="<%= Projects[i].ProjectID  %>">
+	       <%= Projects[i].ProjectID  %>
+	     </td>
+	     <td>
+               <input type="text" name="LabName" value="<%= Projects[i].LabName %>"
+		      placeholder="<%= Projects[i].LabName %>">
+	     </td>
+	     <td>
+	       <textarea name="Description" value="<%= Projects[i].Description %>"
+			 placeholder="<%= Projects[i].Description %>"><%= Projects[i].Description %></textarea>
+	     </td>
+	   </form>
+         </tr>
+         <% } %>
+    </table>
+</form>
+</body>
+
+</html>

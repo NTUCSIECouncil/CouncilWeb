@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h2>Albums</h2>
+    <table>
+      <tr>
+        <th>AlbumID</th>
+        <th>AlbumName</th>
+        <th>CoverImg</th>
+        <th>CreateDate</th>
+        <th>Creator</th>
+      </tr>
+      <% for ( var i = 0 ; i < Albums.length ; i++){ %>
+         <tr>
+           <td>
+             <%= Albums[i].AlbumID  %>
+           </td>
+           <td>
+	     <a href="<%= Albums[i].URL %>"><%= Albums[i].AlbumName  %></a>
+           </td>
+           <td>
+	     <img src="/static/img/<%= Albums[i].CoverImg  %>" alt="<%= Albums[i].AlbumID  %>-coverImg" height="100">
+           </td>
+           <td>
+             <%= Albums[i].CreateDate  %>
+           </td>
+           <td>
+             <%= Albums[i].Creator  %>
+           </td>
+         </tr>
+         <% } %>
+    </table>
+    <script src="/javascripts/index.vue.js"></script>
+  </body>
+</html>

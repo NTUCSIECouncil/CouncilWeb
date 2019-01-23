@@ -8,6 +8,8 @@ var debug           = require('debug')('express-vue:server');
 var cookieParser    = require('cookie-parser');
 var helmet          = require('helmet');
 
+global.__basedir = __dirname;
+
 var express = require('express');
 var app = express();
 
@@ -24,6 +26,14 @@ con.connect(function(err) {
     console.log('connecting success');
 });
 
+var session = require('express-session');
+app.use(session({
+    secret: 'councilweb',
+    resave: true,
+    saveUninitialized: true
+}));
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views/ejs'));
 app.set('view engine', 'ejs');
@@ -37,13 +47,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(helmet());
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // db state
 //app.set('con', con);
 app.use(function(req, res, next) {
     req.con = con;
-    console.log('req.con');
+    //console.log('req.con');
     next();    
 });
 
@@ -54,9 +64,11 @@ app = require('./webpack/set')(app);
 app = require('./routes/set')(app);
 
 // catch and forward to root
+/*
 app.use(function(req, res) {
     res.redirect('/');
 });
+*/
 
 /**
  * Get port from environment and store in Express.

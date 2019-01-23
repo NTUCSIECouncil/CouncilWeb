@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <form name="addproject" action="add" method="post" accept-charset="utf-8" >
+      <h1><%= title %></h1>
+      <div>
+        <label>labname: </label>
+        <input type="text" name="labname" placeholder="labname">
+      </div>
+      <div>
+        <label>description: </label>
+	<textarea name="description" placeholder="description"></textarea>
+      </div>
+      <div>
+        <input type='submit' value='Submit'>
+        <input type='reset' value='Reset'>
+        <input type='button' value='Back' onclick="javascript: location.href='/'">
+      </div>
+    </form>
+  </body>
+
+</html>
