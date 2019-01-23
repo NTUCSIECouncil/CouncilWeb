@@ -8,10 +8,11 @@ router
     .get('/', function(req, res) {
 	var db = req.con;
 	var title = 'Projects Test';
-	db.query('SELECT * FROM Projects', function(err, projects) {
-            if (err) {console.log(err); return; }
-	    res.render('index', { title: title, data: projects});
-	})
+	var projects, events;
+	db.query('SELECT * FROM Projects; SELECT * FROM Events;', function(err, data) {
+        if (err) {console.log(err); return; }
+	    res.render('index', { title: title, Projects: data[0], Events: data[1]});
+	});
     })
     .get('/login', function(req, res) {
 	res.render('login');

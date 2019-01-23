@@ -91,18 +91,18 @@
                     </tr>
                 </thead>
                 <tbody id="tbody">
-                    <% for(var i=0; i<news_type.length; i++){%>
+                    <% for(var i = 0; i < Events.length; i++){ %>
                     	<tr>
                     		<td align="center" valign="center" class="col_1">
-                    			<%= Events[i].EventName %> <!--主旨-->
+                    			<%= Events[i].Creator %> 
                     		</td>
 	                    	<td align="center" valign="center" class="col_2">
 	                        <a>
-	                        	<%= Events[i].CreateDate %>	
+	                        	<%= Events[i].EventName %> <!--主旨-->
 	                        </a>
 	                        </td>
 	                        <td align="center" valign="center" class="col_3">
-	                        	<%= news_time[i] %>
+	                        	<%= Events[i].CreateDate %>
 	                    	</td>
 	                    </tr>
                    	<% } %>
@@ -130,18 +130,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                	 <% for(var i=0; i<project_name.length; i++){%>
+                	 <% for(var i=0; i<Projects.length; i++){%>
                     	<tr>
                     		<td align="center" valign="center" class="col_1">
-                    			<%= project_name[i] %>
+                    			<%= Projects[i].ProjectID %>
                     		</td>
 	                    	<td align="center" valign="center" class="col_2">
 	                        <a>
-	                        	<%= project_title[i] %>		
+	                        	<%= Projects[i].LabName %>		
 	                        </a>
 	                        </td>
 	                        <td align="center" valign="center" class="col_3">
-	                        	<%= project_time[i] %>
+	                        	<%= Projects[i].Description %>
 	                    	</td>
 	                    </tr>
                    	<% } %>
