@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../CSS/backend_controller.css">
+    </head>
+    <body>
+        <div id="Header">
+        
+        </div>
+        <div id="Sidebar">
+            <a href="#">Events</a>
+            <a href="#">Projects</a>
+            <a href="#">Albums</a>
+        </div>
+        <div id="Body">
+            <div id="Events">
+                <h3>Events</h3>
+                <form>
+                Title:<input type='text'><br>
+                Date:<input type='text'><br>
+                Content:<textarea name="Content"></textarea><br>
+                Creator:<input type='text'><br>
+                <p><input type='submit' value='submit'></p>
+                </form>
+            </div>
+            <div id="Projects">
+                <h3>Projects</h3>
+                <form>
+                Lab Name:<input type='text'><br>
+                Description:<textarea name="Content"></textarea><br>
+                Upload your file:<input type="File" name="YourProject" accept="application/pdf"><br>
+                <input type="Reset" value="Reset">
+                <input type='submit' value='submit'>
+                </form>
+            </div>
+            <div id="Albums">
+                <h3>Albums</h3>
+                <form>
+                相簿名稱：<input type='text'><br>
+                建立時間：<input type='text'><br>
+                相簿連結：<input type='text'><br>
+                建立者：<input type='text'><br>
+                選擇封面照片：<input type="file" name="cover_image" accept="image/gif, image/jpeg, image/png"><br>
+                <input type="Reset" value="Reset">
+                <input type='submit' value='submit'>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
