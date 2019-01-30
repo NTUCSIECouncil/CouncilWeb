@@ -14,30 +14,26 @@
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script>
         $(function(){
-            var $frontpage = $('#frontpage'),
+            var $csie = $('#csie'),
                 $news = $('#news'),
-                $mylocker = $('#mylocker'),
                 $project = $('#project'),
                 $photo = $('#photo'),
                 $intro = $('#intro'),
                 gospeed = 800;
-            $frontpage.click(function(e){
+            $csie.click(function(e){
                 $('html,body').animate({scrollTop:0},gospeed);
             });
             $news.click(function(e){
                 $('html,body').animate({scrollTop:614},gospeed);
             });
-            $mylocker.click(function(e){
+            $project.click(function(e){
                 $('html,body').animate({scrollTop:1196},gospeed);
             });
-            $project.click(function(e){
+            $photo.click(function(e){
                 $('html,body').animate({scrollTop:1781},gospeed);
             });
-            $photo.click(function(e){
-                $('html,body').animate({scrollTop:2365},gospeed);
-            });
             $intro.click(function(e){
-                $('html,body').animate({scrollTop:3080},gospeed);
+                $('html,body').animate({scrollTop:2365},gospeed);
             });
         });
         </script>
@@ -46,24 +42,12 @@
         <ul id=csie>
             <h1><big><big><big><big><big>CSIE</big></big></big></big></big></h1>
         </ul>
-        <div style="width: 100vw;height: 95vh;float:left;background-color:black;color:white">
-            <p style="margin-top: 0">
-                visitor@csie.ntu.edu.tw [~]
-            </p>
+        <div style="width: 100vw;height: 95vh;float:left;background-color:#002533;color:white;text-align:center;line-height: 100vh">
+            <h1 style="margin-top: 0";><big><big><big> >echo csie_ </big></big></big></h1>
         </div>
-        <a id="frontpage">
-            <p style="margin-top: 0">
-                front page
-            </p>
-        </a>
         <a id="news">
             <p style="margin-top: 0">
                 news
-            </p>
-        </a>
-        <a id="mylocker">
-            <p style="margin-top: 0">
-                my_locker
             </p>
         </a>
         <a id="project">
@@ -81,7 +65,12 @@
                 intro
             </p>
         </a>
-        <!--首頁-->
+        <a id="facebook">
+            <p style="margin-top: 0">
+                facebook
+            </p>
+        </a>
+        <!--events-->
         <div style="width: 100vw;height: 95vh;float:left">
             <table border="0"; style="width: 70vw;" id="newstable">
                 <thead>
@@ -164,18 +153,13 @@
                     </tr>
                     <tr>
                         <td><button class="button_news previous" onclick="previouspage()">上一頁</button></td>
+                        <td align="center" valign="center"><big>第i頁</big></td>
                         <td><button class="button_news next" onclick="nextpage()">下一頁</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <!--fisrt page-->
-        <div style="width: 100vw;height: 95vh;float:left;color:white;background-color: black">
-            <h1 style="margin-top: 0">
-                My locker
-            </h1>
-        </div>
-        <!--second page-->
+        <!--projects-->
         <div style="width: 100vw;height: 95vh;float:left;">
             <table border="0"; style="width: 70vw">
                 <thead>
@@ -203,7 +187,7 @@
                 </tbody>
             </table>
         </div>
-        <!--third page-->
+        <!--photos-->
         <div style="width: 100vw;height: 95vh;float:left;">
             <table class="photo_HOME">
                 <tr>
@@ -219,7 +203,7 @@
                 </tr>
             </table>
         </div>
-        <!--forth page-->
+        <!--intro-->
         <div style="width: 100vw;height: 95vh;float:left;">
             <div style="width: 20vw;float:left;">
                 <h3>

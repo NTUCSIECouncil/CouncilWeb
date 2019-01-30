@@ -1,19 +1,15 @@
 $(function(){
-    var $frontpage = $('#frontpage'),
+    var $csie = $('#csie'),
         $news = $('#news'),
-        $mylocker = $('#mylocker'),
         $project = $('#project'),
         $photo = $('#photo'),
         $intro = $('#intro'),
         gospeed = 800;
-    $frontpage.click(function(e){
+    $csie.click(function(e){
         $('html,body').animate({scrollTop:0},gospeed);
     });
     $news.click(function(e){
         $('html,body').animate({scrollTop:614},gospeed);
-    });
-    $mylocker.click(function(e){
-        $('html,body').animate({scrollTop:1233},gospeed);
     });
     $project.click(function(e){
         $('html,body').animate({scrollTop:1846},gospeed);
