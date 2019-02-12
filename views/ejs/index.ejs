@@ -1,15 +1,15 @@
 <html style="height: 580vh">
 	<head>
 		<title><%=title%></title>
-		<link rel="stylesheet" href="css/news.css">
-        <link rel="stylesheet" href="css/barstyle.css">
-        <link rel="stylesheet" href="textstyle.css">
-        <link rel="stylesheet" href="photopage.css">
+		<link rel="stylesheet" href="/static/CSS/news.css">
+        <link rel="stylesheet" href="/static/CSS/barstyle.css">
+        <link rel="stylesheet" href="/static/CSS/textstyle.css">
+        <link rel="stylesheet" href="/static/CSS/photopage.css">
         
-        <script src="ejs.js"></script>
-        <script src="jquery.min.js"></script>
-        <script src="scripts/ajax.js"></script>
-        <script src="scripts/scroll.js"></script>
+        <script src="/static/Javascripts/ejs.js"></script>
+        <script src="/static/Javascripts/jquery.min.js"></script>
+        <script src="/static/Javascripts/ajax.js"></script>
+        <script src="/static/Javascripts/scroll.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script>
         $(function(){
@@ -21,19 +21,19 @@
                 gospeed = 800;
             $csie.click(function(e){
                 $('html,body').animate({scrollTop:0},gospeed);
-            });
+            };
             $news.click(function(e){
                 $('html,body').animate({scrollTop:614},gospeed);
-            });
+            };
             $project.click(function(e){
-                $('html,body').animate({scrollTop:1196},gospeed);
-            });
+                $('html,body').animate({scrollTop:800},gospeed);
+            };
             $photo.click(function(e){
                 $('html,body').animate({scrollTop:1781},gospeed);
-            });
+            };
             $intro.click(function(e){
                 $('html,body').animate({scrollTop:2365},gospeed);
-            });
+            };
         });
         </script>
 	</head>
@@ -80,10 +80,11 @@
                     </tr>
                 </thead>
                 <tbody id="tbody">
-                    <% for(var i = 0; i < Events.length; i++){ %>
+                    <% var page=0 %>
+                    <% for( var i = page*10 ; i < Events.length; i++){ %>
                     	<tr>
                     		<td align="center" valign="center" class="col_1">
-                    			<%= Events[i].Creator %> 
+                    			<%= Events[i].EventID %> 
                     		</td>
 	                    	<td align="center" valign="center" class="col_2">
 	                        <a>
@@ -97,6 +98,7 @@
                    	<% } %>
                     <tr>
                         <td><button class="button_news previous" onclick="previouspage()">上一頁</button></td>
+                        <td><a>目前頁數：<%= page+1 %>/ 總共頁數：<%=Events.length/10%></a></td>
                         <td><button class="button_news next" onclick="nextpage()">下一頁</button></td>
                     </tr>
                 </tbody>
