@@ -1,0 +1,23 @@
+#Head{
+    background-color: beige;
+    padding: 20px;
+}
+
+#Body{
+    height:1620px;
+    background-color: aqua;
+}
+#container{
+    max-width: none;
+    margin: 0 auto;
+}
+.col {
+    width: 50%;
+    float: left;
+}
+.col {
+    background-color: red;
+}
+.col + .col {
+    background-color: royalblue;
+}
