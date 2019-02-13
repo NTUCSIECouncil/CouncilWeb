@@ -56,7 +56,7 @@
                 </thead>
                 <tbody id="tbody">
                     <% var page=0 %>
-                    <% for( var i = page*10 ; i < Events.length; i++){ %>
+                    <% for( var i = page*10 ; i < Events.length && i < page*10+10; i++){ %>
                     	<tr>
                     		<td align="center" valign="center" class="col_1">
                     			<%= Events[i].EventID %> 
@@ -73,7 +73,7 @@
                    	<% } %>
                     <tr>
                         <td><button class="button_news previous" onclick="previouspage()">上一頁</button></td>
-                        <td><a>目前頁數：<%= page+1 %>/ 總共頁數：<%=Events.length/10%></a></td>
+                        <td><a>目前頁數：<%= page+1 %>/ 總共頁數：<%=Math.ceil(Events.length/10)%></a></td>
                         <td><button class="button_news next" onclick="nextpage()">下一頁</button></td>
                     </tr>
                 </tbody>
