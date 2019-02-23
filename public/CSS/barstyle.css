@@ -7,6 +7,7 @@
     bottom: 0%;
     color: black;
     font-size: large;
+    z-index: 1;
 }
 #project{
     background-color: darkgray;
@@ -17,6 +18,7 @@
     bottom: 0%;
     color: black;
     font-size: large;
+    z-index: 1;
 }
 #photo{
     background-color: darkgray;
@@ -27,6 +29,7 @@
     bottom: 0%;
     color: black;
     font-size: large;
+    z-index: 1;
 }
 #intro{
     background-color: darkgray;
@@ -37,6 +40,7 @@
     bottom: 0%;
     color: black;
     font-size: large;
+    z-index: 1;
 }
 #facebook{
     background-color: darkgray;
@@ -47,4 +51,5 @@
     bottom: 0%;
     color: black;
     font-size: large;
+    z-index: 1;
 }

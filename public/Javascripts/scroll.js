@@ -5,19 +5,25 @@ $(function(){
         $photo = $('#photo'),
         $intro = $('#intro'),
         gospeed = 799;
+    var intViewportHeight = window.innerHeight;
     $csie.click(function(e){
+        intViewportHeight = window.innerHeight
         $('html,body').animate({scrollTop:0},gospeed);
     });
     $news.click(function(e){
-        $('html,body').animate({scrollTop:600},gospeed);
+        intViewportHeight = window.innerHeight
+        $('html,body').animate({scrollTop:intViewportHeight},gospeed);
     });
     $project.click(function(e){
-        $('html,body').animate({scrollTop:1200},gospeed);
+        intViewportHeight = window.innerHeight
+        $('html,body').animate({scrollTop:intViewportHeight*2},gospeed);
     });
     $photo.click(function(e){
-        $('html,body').animate({scrollTop:1800},gospeed);
+        intViewportHeight = window.innerHeight
+        $('html,body').animate({scrollTop:intViewportHeight*3},gospeed);
     });
     $intro.click(function(e){
-        $('html,body').animate({scrollTop:2400},gospeed);
+        intViewportHeight = window.innerHeight
+        $('html,body').animate({scrollTop:intViewportHeight*4},gospeed);
     });
 });
