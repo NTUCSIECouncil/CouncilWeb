@@ -1,7 +1,7 @@
 #news{
     background-color: darkgray;
     width:20%;
-    height:5%;
+    height:40px;
     position: fixed;
     left: 0%;
     bottom: 0%;
@@ -12,7 +12,7 @@
 #project{
     background-color: darkgray;
     width:20%;
-    height:5%;
+    height:40px;
     position: fixed;
     left: 20%;
     bottom: 0%;
@@ -23,7 +23,7 @@
 #photo{
     background-color: darkgray;
     width:20%;
-    height:5%;
+    height:40px;
     position: fixed;
     left: 40%;
     bottom: 0%;
@@ -34,7 +34,7 @@
 #intro{
     background-color: darkgray;
     width:20%;
-    height:5%;
+    height:40px;
     position: fixed;
     left: 60%;
     bottom: 0%;
@@ -45,7 +45,7 @@
 #facebook{
     background-color: darkgray;
     width:20%;
-    height:5%;
+    height:40px;
     position: fixed;
     left: 80%;
     bottom: 0%;

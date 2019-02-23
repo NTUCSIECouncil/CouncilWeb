@@ -1,4 +1,4 @@
-<html style="height: 580vh">
+<html style="height: 500vh">
 	<head>
 		<title><%=title%></title>
 		<link rel="stylesheet" href="/static/CSS/news.css">
@@ -46,38 +46,42 @@
         </a>
         <!--news-->
         <div class="page1"; style="width: 100vw;height: 100vh;float:left">
-            <table borr="0"; style="width: 80vw;" id="newstable">
-                <thead>
-                    <tr>
-                        <th class="col_1">類別</th>
-                        <th class="col_2">標題</th>
-                        <th class="col_3">發佈日期</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-                    <% var page=0 %>
-                    <% for( var i = page*10 ; i < Events.length && i < page*10+10; i++){ %>
-                    	<tr>
-                    		<td align="center" valign="center" class="col_1">
-                    			<%= Events[i].EventID %> 
-                    		</td>
-	                    	<td align="center" valign="center" class="col_2">
-	                        <a>
-	                        	<%= Events[i].EventName %> <!--主旨-->
-	                        </a>
-	                        </td>
-	                        <td align="center" valign="center" class="col_3">
-	                        	<%= Events[i].CreateDate %>
-	                    	</td>
-	                    </tr>
-                   	<% } %>
-                    <tr>
-                        <td><button class="button_news previous" onclick="previouspage()">上一頁</button></td>
-                        <td><a>目前頁數：<%= page+1 %>/ 總共頁數：<%=Math.ceil(Events.length/10)%></a></td>
-                        <td><button class="button_news next" onclick="nextpage()">下一頁</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div style="height: 80vh;">
+                <table borr="0"; style="width: 100vw;height: 80vh;" id="newstable">
+                    <thead>
+                        <tr>
+                            <th class="col_1">類別</th>
+                            <th class="col_2">標題</th>
+                            <th class="col_3">發佈日期</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <% var page=0 %>
+                        <% for( var i = page*10 ; i < Events.length && i < page*10+10; i++){ %>
+                            <tr>
+                                <td align="center" valign="center" class="col_1">
+                                    <%= Events[i].EventID %> 
+                                </td>
+                                <td align="center" valign="center" class="col_2">
+                                <a>
+                                    <%= Events[i].EventName %> <!--主旨-->
+                                </a>
+                                </td>
+                                <td align="center" valign="center" class="col_3">
+                                    <%= Events[i].CreateDate %>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div style="height:20vh; text-align: center;">
+                <button class="button_news previous" onclick="previouspage()">上一頁</button>
+
+                <a id="pages">目前頁數：<%= page+1 %>/ 總共頁數：<%=Math.ceil(Events.length/10)%></a>
+
+                <button class="button_news next" onclick="nextpage()">下一頁</button></td>
+            </div>
         </div>
         <!--project-->
         <div style="width: 100vw;height: 100vh;float:left;">
@@ -90,7 +94,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                	 <% for(var i=0; i<Projects.length; i++){%>
+                    <% var page=0 %>
+                    <% for( var i = page*10 ; i < Projects.length && i < page*10+10; i++){ %>
                     	<tr>
                     		<td align="center" valign="center" class="col_1">
                     			<%= Projects[i].ProjectID %>
@@ -107,6 +112,13 @@
                    	<% } %>
                 </tbody>
             </table>
+            <div style="height:20vh; text-align: center;">
+                <button class="button_news previous" onclick="previouspage()">上一頁</button>
+
+                <a id="pages">目前頁數：<%= page+1 %>/ 總共頁數：<%=Math.ceil(Projects.length/10)%></a>
+
+                <button class="button_news next" onclick="nextpage()">下一頁</button></td>
+            </div>
         </div>
         <!--photo-->
         <div style="width: 100vw;height: 100vh;float:left;">
@@ -124,8 +136,9 @@
                 </tr>
             </table>
         </div>
+        <!--intro-->
         <div style="width: 100vw;height: 100vh;float:left;">
-            <div style="width: 20vw;float:left;">
+            <div style="width: 20vw;height: 100vh;float:left;">
                 <h3>
                     系所介紹
                 </h3>
@@ -150,7 +163,7 @@
                     <a href="https://www.csie.ntu.edu.tw/">台大資工官網</a>
                 </p>
             </div>
-            <div style="width:80vw">
+            <div style="width:80vw;">
                 <h2>
                     活動部
                 </h2>
