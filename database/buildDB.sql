@@ -19,6 +19,7 @@ CREATE TABLE EventTagsRelation (
 CREATE TABLE Events (
        EventID INT,
        EventName NVARCHAR(100),
+	   Category NVARCHAR(100),
        Priority TINYINT,
        PriorityUntil DATE,
        CreateDate DATETIME,
