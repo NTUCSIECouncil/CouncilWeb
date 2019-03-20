@@ -135,4 +135,30 @@ router
     });
 
 
+
+
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+/*
+router.get('/ajax', function(req, res, next) {
+  res.render('ajax');
+});
+*/
+
+router.post('/req_ajax', urlencodedParser, function(req, res, next) {
+    var skip = req.body.pageNum;
+    var db = req.con;
+    //db.connect(function(err){if (err) throw err;});
+    var Q = "SELECT EventName Category CreateDate FROM Events LIMIT " + skip + " 10"; 
+    var objson = [];
+    db.query(Q, function (err, result, fields) {
+        if (err) throw err;
+        for (var i = 0 ; i < result.length;i++) {
+            objson.push({EventName:result[i].EventName, Category:result[i].Category, CreateDate:result[i].CreateDate});
+        } 
+    });
+    res.end(JSON.stringify(objson));
+ });
+
 module.exports = router;

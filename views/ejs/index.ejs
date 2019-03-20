@@ -6,11 +6,7 @@
         <link rel="stylesheet" href="/static/CSS/textstyle.css">
         <link rel="stylesheet" href="/static/CSS/photopage.css">
         
-        <script src="/static/Javascripts/ejs.js"></script>
-        <script src="/static/Javascripts/jquery.min.js"></script>
-        <script src="/static/Javascripts/ajax.js"></script>
-        <script src="/static/Javascripts/scroll.js"></script>
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        
 	</head>
     <body style="margin: 0;padding: 0;">
         <ul id=csie>
@@ -55,7 +51,7 @@
                             <th class="col_3">發佈日期</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody">
+                    <tbody id = "news_tbody">
                         <% var page=0 %>
                         <% for( var i = page*10 ; i < Events.length && i < page*10+10; i++){ %>
                             <tr>
@@ -76,11 +72,11 @@
                 </table>
             </div>
             <div style="height:20vh; text-align: center;">
-                <button class="button_news previous" onclick="previouspage()">上一頁</button>
+                <button class="button_news previous" onclick="previouspage(<%=page%>);">上一頁</button>
 
                 <a id="pages">目前頁數：<%= page+1 %>/ 總共頁數：<%=Math.ceil(Events.length/10)%></a>
 
-                <button class="button_news next" onclick="nextpage()">下一頁</button></td>
+                <button class="button_news next" onclick="nextpage(<%=page%>);">下一頁</button></td>
             </div>
         </div>
         <!--project-->
@@ -93,7 +89,7 @@
                         <th class="col_3">發佈日期</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="projects_tbody">
                     <% var page=0 %>
                     <% for( var i = page*10 ; i < Projects.length && i < page*10+10; i++){ %>
                     	<tr>
@@ -186,5 +182,9 @@
                 </table>
             </div>
         </div>
+        <script src="/static/Javascripts/jquery.min.js"></script>
+        <script src="/static/Javascripts/ajax.js"></script>
+        <script src="/static/Javascripts/scroll.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         </body>
 </html>
