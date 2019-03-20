@@ -6,7 +6,7 @@ function getData(page)
 {
     $.ajax({
         type: 'POST',
-        url: OL_Action_Root+"/req_ajax",
+        url: "/req_ajax",
         data: {'pageNum':page},
         dataType: 'json',
         
@@ -23,10 +23,10 @@ function getData(page)
             //alert("loading error");
             
             /*jqXHR*/
-            alert(jqXHR.responseText);
+            //alert(jqXHR.responseText);
             //alert(jqXHR.status);
             //alert(jqXHR.readyState);
-            alert(jqXHR.statusText);
+           // alert(jqXHR.statusText);
             
             
             /*其他兩個參數*/
