@@ -6,8 +6,9 @@ SET character_set_results = utf8mb4;
 SET character_set_connection = utf8mb4;
 
 CREATE TABLE EventTags (
-       TagID INT,
-       TagName NVARCHAR(100)
+       TagID INT NOT NULL AUTO_INCREMENT,
+       TagName NVARCHAR(100),
+       PRIMARY KEY (TagID)
 );
 
 CREATE TABLE EventTagsRelation (
@@ -17,14 +18,15 @@ CREATE TABLE EventTagsRelation (
 );
 
 CREATE TABLE Events (
-       EventID INT,
+       EventID INT NOT NULL AUTO_INCREMENT,
        EventName NVARCHAR(100),
 	   Category NVARCHAR(100),
        Priority TINYINT,
        PriorityUntil DATE,
        CreateDate DATETIME,
        Creator NVARCHAR(100),
-       Content NVARCHAR(1000)
+       Content NVARCHAR(1000),
+	PRIMARY KEY (EventID)
 );
 
 CREATE TABLE ProjectTags (
@@ -39,20 +41,22 @@ CREATE TABLE ProjectTagsRelation (
 );
 
 CREATE TABLE Projects (
-       ProjectID INT,
+       ProjectID INT NOT NULL AUTO_INCREMENT,
        LabName NVARCHAR(100),
-       Description NVARCHAR(2000)
+       Description NVARCHAR(2000),
+	PRIMARY KEY (ProjectID)
 );
 
 CREATE TABLE Affairs (
-       AffairID INT,
+       AffairID INT NOT NULL AUTO_INCREMENT,
        Applicant NVARCHAR(100),
        ID VARCHAR(10),
        ApplyService NVARCHAR(100),
        ApplyDate DATETIME,
        ProcessDate DATETIME,
        ProcessName NVARCHAR(100),
-       Comments NVARCHAR(500)
+       Comments NVARCHAR(500),
+	PRIMARY KEY (AffairID)
 );
 
 CREATE TABLE AlbumTags (
@@ -67,12 +71,13 @@ CREATE TABLE AlbumTagsRelation (
 );
 
 CREATE TABLE Albums (
-       AlbumID INT,
+       AlbumID INT NOT NULL AUTO_INCREMENT,
        AlbumName NVARCHAR(200),
        URL VARCHAR(2083),
        CoverImg NVARCHAR(200),
        CreateDate DATETIME,
-       Creator NVARCHAR(100)
+       Creator NVARCHAR(100),
+	PRIMARY KEY (AlbumID)
 );
 
 CREATE TABLE Accounts (
