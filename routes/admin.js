@@ -17,9 +17,14 @@ router
 	//original path: req._parsedOriginalUrl.pathname
 	if (req.session.loggedin) {
 	    next();
+        res.redirect('/admin/index');
 	} else {
 	    res.redirect('/login');
 	}
+    })
+
+    .get('/index', function(reg, res){
+    res.render('admin/index', {title: 'Admin home'});
     })
 
     .get('/events/add', function(req, res){
@@ -53,6 +58,7 @@ router
 	res.send('events post' + req.params.id);
     })
 
+    /*
     .get('/projects', function(req, res){
 	var db = req.con;
 	db.query('SELECT * FROM Projects', function(err, data) {
@@ -60,6 +66,7 @@ router
 	    res.render('admin/projects', { title: 'Admin Project', Projects: data});
 	});
     })
+    */
     .post('/projects/delete', function(req, res){
 	var db = req.con;
 	var del = req.body.del;
