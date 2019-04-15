@@ -17,7 +17,7 @@ router
 	//original path: req._parsedOriginalUrl.pathname
 	if (req.session.loggedin) {
 	    next();
-        res.redirect('/admin/index');
+        //res.redirect('/admin/index');
 	} else {
 	    res.redirect('/login');
 	}
@@ -58,7 +58,6 @@ router
 	res.send('events post' + req.params.id);
     })
 
-    /*
     .get('/projects', function(req, res){
 	var db = req.con;
 	db.query('SELECT * FROM Projects', function(err, data) {
@@ -66,7 +65,6 @@ router
 	    res.render('admin/projects', { title: 'Admin Project', Projects: data});
 	});
     })
-    */
     .post('/projects/delete', function(req, res){
 	var db = req.con;
 	var del = req.body.del;
@@ -92,7 +90,7 @@ router
 	    db.query('INSERT INTO Projects SET ?', sql, function(err, rows) {
 		if (err) console.log(err);
 		res.setHeader('Content-Type', 'application/json');
-		res.redirect('/admin/projects');
+		res.redirect('/projects');
 	    });
 	});
     })

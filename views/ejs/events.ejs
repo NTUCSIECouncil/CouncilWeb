@@ -11,7 +11,7 @@
       <tr>
         <th>EventID</th>
         <th>EventName</th>
-        <th>Priority</th>
+        <!--<th>Priority</th>-->
         <th>CreateDate</th>
         <th>Content</th>
       </tr>
@@ -32,6 +32,8 @@
          </tr>
          <% } %>
     </table>
+    <input type="button" value="Back" onclick="javascript: location.href='/admin/events/add'">
+    <input type="button" value="Index" onclick="javascript: location.href='/admin/index'">
     <script src="/javascripts/index.vue.js"></script>
   </body>
 </html>

@@ -27,7 +27,7 @@ router
 		if (results.length > 0) {
 		    req.session.loggedin = true;
 		    req.session.username = username;
-		    res.redirect('/admin/projects');
+		    res.redirect('/admin/index');
 		} else {
 		    res.send('Incorrect Username and/or Password!');
 		}			
