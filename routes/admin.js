@@ -17,9 +17,14 @@ router
 	//original path: req._parsedOriginalUrl.pathname
 	if (req.session.loggedin) {
 	    next();
+        //res.redirect('/admin/index');
 	} else {
 	    res.redirect('/login');
 	}
+    })
+
+    .get('/index', function(reg, res){
+    res.render('admin/index', {title: 'Admin home'});
     })
 
     .get('/events/add', function(req, res){
@@ -85,7 +90,7 @@ router
 	    db.query('INSERT INTO Projects SET ?', sql, function(err, rows) {
 		if (err) console.log(err);
 		res.setHeader('Content-Type', 'application/json');
-		res.redirect('/admin/projects');
+		res.redirect('/projects');
 	    });
 	});
     })
