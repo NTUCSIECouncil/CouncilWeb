@@ -9,7 +9,7 @@ router
 	var db = req.con;
 	var title = 'Projects Test';
 	var projects, events;
-	db.query('SELECT * FROM Projects; SELECT * FROM Events;', function(err, data) {
+	db.query('SELECT * FROM Projects ORDER BY ProjectID DESC LIMIT 10; SELECT * FROM Events ORDER BY EventID DESC LIMIT 10;', function(err, data) {
         if (err) {console.log(err); return; }
 	    res.render('index', { title: title, Projects: data[0], Events: data[1]});
 	});
