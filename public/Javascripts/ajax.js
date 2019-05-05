@@ -2,41 +2,41 @@ var curPage = 1;
 var totalData, pageSize, totalPage;
 var OL_Action_Root = "http://127.0.0.1:9805";
 
-function getData(page)
-{
-    $.ajax({
-        type: 'POST',
-        url: "/req_ajax",
-        data: {'pageNum':page},
-        dataType: 'json',
+// function getData(page)
+// {
+//     $.ajax({
+//         type: 'POST',
+//         url: "/req_ajax",
+//         data: {'pageNum':page},
+//         dataType: 'json',
         
-        success: function(json){
-            $("#news_tbody").empty();
-            var row = "";
-            var list = json;
-            $.each(list,function(index,array){
-                row += "<tr><td align='center' valign='center' class='col_1'>" + array['Category'] + "</td><td align='center' valign='center' class='col_2'><a>" + array['EventName'] + "</a></td><td align='center' valign='center' class='col_3'>" + array['CreateDate'] + "</td></tr>";
-            });
-            $("#news_tbody").append(row);
-        },
-        error: function(jqXHR, textStatus, errorThrown){
-            //alert("loading error");
+//         success: function(json){
+//             $("#news_tbody").empty();
+//             var row = "";
+//             var list = json;
+//             $.each(list,function(index,array){
+//                 row += "<tr><td align='center' valign='center' class='col_1'>" + array['Category'] + "</td><td align='center' valign='center' class='col_2'><a>" + array['EventName'] + "</a></td><td align='center' valign='center' class='col_3'>" + array['CreateDate'] + "</td></tr>";
+//             });
+//             $("#news_tbody").append(row);
+//         },
+//         error: function(jqXHR, textStatus, errorThrown){
+//             //alert("loading error");
             
-            /*jqXHR*/
-            //alert(jqXHR.responseText);
-            //alert(jqXHR.status);
-            //alert(jqXHR.readyState);
-           // alert(jqXHR.statusText);
+//             /*jqXHR*/
+//             //alert(jqXHR.responseText);
+//             //alert(jqXHR.status);
+//             //alert(jqXHR.readyState);
+//            // alert(jqXHR.statusText);
             
             
-            /*其他兩個參數*/
-            alert(textStatus);
-            alert(errorThrown);
-        }
-    });
-}
+//             /*其他兩個參數*/
+//             alert(textStatus);
+//             alert(errorThrown);
+//         }
+//     });
+// }
 
-function previouspage(i)
+function previouspage(page)
 {
     if (i > 0) {
         i--;
@@ -44,7 +44,7 @@ function previouspage(i)
     }
 }
 
-function nextpage(i)
+function nextpage(page)
 {
     i++;
     getData(i);

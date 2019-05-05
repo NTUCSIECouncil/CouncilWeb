@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html style="height: 100vh">
+	<head>
+		<meta charset="utf-8">
+        <title> Event </title>
+	</head>
+    <body>
+        <ul id=back>
+            <h1>回首頁</h1>
+        </ul>
+        <div style="width: 100vw; height: 10vh; float: left">
+            <div style="width: 70vw; height: 10vh; float: left; background-color: aqua">    
+                <a>
+                    <%= Events[i].EventName %>
+                </a>
+            </div>
+            <div style="width: 30vw; height: 5vh; float: left; background-color: green">
+                <a>發布者</a>
+            </div>
+            <div style="width: 30vw; height: 5vh; float: left; background-color: pink">
+                <a>
+                    <%=Events[i].CreateDate %>
+                </a>
+            </div>
+            <div style="width: 100vw; height: 90vh; float: left">
+                <a>內容</a>
+            </div>
+        </div>
+    </body>
+</html>
