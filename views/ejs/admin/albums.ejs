@@ -6,30 +6,67 @@
   </head>
 
   <body>
-    <form name="addalbum" action="add" method="post" accept-charset="utf-8" >
-      <h1><%= title %></h1>
-      <div>
-        <label>creater: </label>
-	<input type="text" name="creater" placeholder="creater">
-      </div>
-      <div>
-        <label>album name: </label>
-        <input type="text" name="albumname" placeholder="albumname">
-      </div>
-      <div>
-        <label>album url: </label>
-	<input type="text" name="url" placeholder="url">
-      </div>
-      <div>
-        <label>cover img: </label>
-	<input type="file" name="img">
-      </div>
-      <div>
-        <input type='submit' value='Submit'>
-        <input type='reset' value='Reset'>
-        <input type='button' value='Back' onclick="javascript: location.href='/'">
-      </div>
-    </form>
+    <div>
+        <form name="addalbum" action="albums/add" method="post" accept-charset="utf-8" >
+          <h1><%= title %></h1>
+          <div>
+            <label>creater: </label>
+            <input type="text" name="Creator" placeholder="creater">
+          </div>
+          <div>
+            <label>album name: </label>
+            <input type="text" name="AlbumName" placeholder="albumname">
+          </div>
+          <div>
+            <label>album url: </label>
+            <input type="text" name="URL" placeholder="url">
+          </div>         
+          <div>
+            <label>cover img: </label>
+            <input type="file" name="CoverImg">
+          </div>          
+          <div>
+            <input type='submit' value='Submit'>
+            <input type='reset' value='Reset'>
+            <input type='button' value='Back' onclick="javascript: location.href='/admin/index'">
+          </div>
+        </form>
+    </div>
+    <div>
+        <table>
+            <tr>
+	           <th></th>
+	           <th></th>
+               <th>ID</th>
+               <th>Creator</th>
+               <th>AlbumName</th>
+               <th>UpdateDate</th>   <!--CreateDate-->
+               <th>URL</th>
+            </tr>
+        <% for ( var i = 0 ; i < Albums.length ; i++){ %>
+            <tr>
+                <td>
+                <form name="deletealbum" action="albums/delete" method="post" accept-charset="utf-8" >
+                <input type="hidden" name="del" value=<%= Albums[i].AlbumID  %> >
+                <input type="submit" value="Delete">
+                </form>
+                </td>
+                <td>
+                <form name="modifyalbum" action="albums/<%= Albums[i].AlbumID  %>"
+                   method="get" accept-charset="utf-8" >
+                <input type="submit" value="Modify">
+                 </form>
+                </td>
+                <td><%= Albums[i].AlbumID  %></td>
+                <td><%= Albums[i].Creator  %></td>
+                <td><%= Albums[i].AlbumName  %></td>
+                <td><%= Albums[i].CreateDate  %></td>
+                <td><%= Albums[i].URL  %></td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+    <input type="button" value="Index" onclick="javascript: location.href='/admin/index'">
   </body>
 
 </html>

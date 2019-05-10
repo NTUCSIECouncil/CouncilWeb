@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <form name="modifyalbum" action="modify" method="post" accept-charset="utf-8" >
+    <input type="hidden" name="AlbumID" value="<%= Albums.AlbumID %>">
+      <h1><%= title %></h1>
+      <div>
+        <label>Creator: </label>
+        <input type="text" name="Creator" value="<%= Albums.Creator %>" placeholder="<%= Albums.Creator %>">
+      </div>
+      <div>
+        <label>Album Name: </label>
+        <input type="text" name="AlbumName" value="<%= Albums.AlbumName %>" placeholder="<%= Albums.AlbumName %>">
+      </div>
+      <div>
+        <label>Album URL: </label>
+        <input type="text" name="URL" value="<%= Albums.URL %>" placeholder="<%= Albums.URL %>">
+      </div>
+      <div>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        <input type="button" value="Back" onclick="javascript: location.href='/admin/albums'">
+      </div>
+    </form>
+  </body>
+
+</html>

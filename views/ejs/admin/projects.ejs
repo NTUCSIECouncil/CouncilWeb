@@ -7,7 +7,6 @@
 
   <body>
     <h1><%= title %></h1>
-    <h2>Projects</h2>
     <table>
       <tr>
 	<th></th>
@@ -28,13 +27,13 @@
       <% for ( var i = 0 ; i < Projects.length ; i++){ %>
          <tr>
 	   <td>
-	     <form name="project" action="projects/delete" method="post" accept-charset="utf-8" >
+	     <form name="deleteproject" action="projects/delete" method="post" accept-charset="utf-8" >
 	       <input type="hidden" name="del" value=<%= Projects[i].ProjectID  %> >
 	       <input type="submit" value="Delete">
 	     </form>
 	   </td>
 	   <td>
-	     <form name="project" action="projects/<%= Projects[i].ProjectID  %>"
+	     <form name="modifyproject" action="projects/<%= Projects[i].ProjectID  %>"
 		   method="get" accept-charset="utf-8" >
 	       <input type="submit" value="Modify">
 	     </form>
@@ -45,7 +44,7 @@
          </tr>
          <% } %>
     </table>
-</form>
+    <input type="button" value="Index" onclick="javascript: location.href='/admin/index'">
 </body>
 
 </html>

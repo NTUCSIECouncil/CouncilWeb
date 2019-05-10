@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <h1><%= title %></h1>
+    <table>
+      <tr>
+	<th></th>
+	<th></th>
+        <th>ID</th>
+        <th>Category</th>
+        <th>EventName</th>
+        <th>UpdateDate</th>   <!--CreateDate-->
+        <th>Content</th>
+      </tr>
+      <tr>
+	<form name="addevent" action="events/add" method="post" accept-charset="utf-8" >
+      <td><input type="submit" value="Add"></td>
+	  <td><input type="reset" value="Reset"></td>
+	  <td></td>
+      <td><input type="text" name="Category" placeholder="category"></td>
+      <td><input type="text" name="EventName" placeholder="eventname"></td>
+      <td></td>
+	  <td><textarea name="Content" placeholder="content"></textarea></td>
+	</form>
+      </tr>
+      <% for ( var i = 0 ; i < Events.length ; i++){ %>
+         <tr>
+           <td>
+             <form name="deleteevent" action="events/delete" method="post" accept-charset="utf-8" >
+               <input type="hidden" name="del" value=<%= Events[i].EventID  %> >
+               <input type="submit" value="Delete">
+             </form>
+           </td>
+           <td>
+             <form name="modifyevent" action="events/<%= Events[i].EventID  %>"
+               method="get" accept-charset="utf-8" >
+               <input type="submit" value="Modify">
+             </form>
+           </td>
+           <td><%= Events[i].EventID  %></td>
+           <td><%= Events[i].Category  %></td>
+           <td><%= Events[i].EventName  %></td>
+           <td><%= Events[i].CreateDate  %></td>
+           <td><%= Events[i].Content  %></td>
+        </tr>
+    <% } %>
+    </table>
+    <input type="button" value="Index" onclick="javascript: location.href='/admin/index'">
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <form name="modifyevent" action="modify" method="post" accept-charset="utf-8" >
+    <input type="hidden" name="EventID" value="<%= Events.EventID %>">
+      <h1><%= title %></h1>
+      <div>
+        <label>Category: </label>
+        <input type="text" name="Category" value="<%= Events.Category %>" placeholder="<%= Events.Category %>">
+      </div>
+      <div>
+        <label>Event Name: </label>
+        <input type="text" name="EventName" value="<%= Events.EventName %>" placeholder="<%= Events.EventName %>">
+      </div>
+      <div>
+        <label>Content: </label>
+	<textarea name="Content" value="<%= Events.Content %>"
+		  placeholder="<%= Events.Content %>"><%= Events.Content %></textarea>
+      </div>
+      <div>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        <input type="button" value="Back" onclick="javascript: location.href='/admin/events'">
+      </div>
+    </form>
+  </body>
+
+</html>
