@@ -43,6 +43,8 @@ CREATE TABLE ProjectTagsRelation (
 CREATE TABLE Projects (
        ProjectID INT NOT NULL AUTO_INCREMENT,
        LabName NVARCHAR(100),
+       ProfessorName_ZH NVARCHAR(100),
+       ProfessorName_EN NVARCHAR(100),
        Description NVARCHAR(2000),
 	PRIMARY KEY (ProjectID)
 );
