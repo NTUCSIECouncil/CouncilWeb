@@ -6,27 +6,27 @@
 	</head>
     <body>
         <ul id=back>
-            <h1>回首頁</h1>
+            <input type="button" value="Home" onclick="javascript: location.href='/'">
         </ul>
         <div style="width: 100vw; height: 10vh; float: left">
             <div style="width: 70vw; height: 10vh; float: left; background-color: aqua">    
                 <a>
-                    <%= Events[i].EventName %>
+                    <%= Events.EventName %>
                 </a>
             </div>
             <div style="width: 30vw; height: 5vh; float: left; background-color: green">
                 <a>
-                    <%= Events[i].Creator %>
+                    <%= Events.Category %>
                 </a>
             </div>
             <div style="width: 30vw; height: 5vh; float: left; background-color: pink">
                 <a>
-                    <%= Events[i].CreateDate %>
+                    <%= Events.CreateDate %>
                 </a>
             </div>
             <div style="width: 100vw; height: 90vh; float: left">
                 <a>
-                    <%= Events[i].Content %>
+                    <%= Events.Content %>
                 </a>
             </div>
         </div>

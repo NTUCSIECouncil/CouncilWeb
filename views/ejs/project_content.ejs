@@ -6,27 +6,27 @@
 	</head>
     <body>
         <ul id=back>
-            <h1>回首頁</h1>
+            <input type="button" value="Home" onclick="javascript: location.href='/'">
         </ul>
         <div style="width: 100vw; height: 10vh; float: left">
             <div style="width: 70vw; height: 10vh; float: left; background-color: aqua">    
                 <a>
-                    <%= Projects[i].EventName %>
+                   <%= Projects.LabName %>
                 </a>
             </div>
             <div style="width: 30vw; height: 5vh; float: left; background-color: green">
                 <a>
-                    <%= Projects[i].LabName %>
+                   教授
                 </a>
             </div>
             <div style="width: 30vw; height: 5vh; float: left; background-color: pink">
                 <a>
-                    <%=Projects[i].CreateDate %>
+                    有需要日期嗎？
                 </a>
             </div>
             <div style="width: 100vw; height: 90vh; float: left">
                 <a>
-                    <%= Projects[i].DesCription%>
+                    <%= Projects.Description %>
                 </a>
             </div>
         </div>
