@@ -9,11 +9,12 @@ router
     	var db = req.con;
     	var title = 'NTU CSIE WEB';
     	var projects, events;
-    	db.query('SELECT * FROM Projects ORDER BY ProjectID DESC LIMIT 10; SELECT * FROM Events ORDER BY EventID DESC LIMIT 10; SELECT COUNT(1) AS count FROM Projects; SELECT COUNT(1) AS count FROM Events;', function(err, data) {
+    	db.query('SELECT COUNT(1) AS count FROM Projects; SELECT COUNT(1) AS count FROM Events;', function(err, data) {
             if (err) { console.log(err); return; }
             console.log(data[1][0]);
     	    res.render('index', { 
-                title: title, Projects: data[0], Events: data[1], Projects_TotalPage: data[2], Events_TotalPage: data[3]
+                title: title,
+                Projects_TotalPage: data[0], Events_TotalPage: data[1]
             });
     	});
     })
@@ -72,15 +73,16 @@ router
         var num = parseInt(skip)*10;
         
         var db = req.con;
-        //db.connect(function(err){if (err) throw err;});
         var objson = [];
         db.query("SELECT EventID, EventName, Category, CreateDate FROM Events ORDER BY EventID DESC LIMIT ?, 10", [num], function (err, result, fields) {
             if (err) throw err;
-            console.log(result[0]);
+
             for (var i = 0 ; i < result.length;i++) {
                 objson.push({
                     EventID:result[i].EventID,
-                    EventName:result[i].EventName, Category:result[i].Category, CreateDate:result[i].CreateDate});
+                    EventName:result[i].EventName, 
+                    Category:result[i].Category, 
+                    CreateDate:String(result[i].CreateDate).substring(4,15)});
             }
             res.send(JSON.stringify(objson));
         });
@@ -91,13 +93,14 @@ router
         var num = parseInt(skip)*10;
         
         var db = req.con;
-        //db.connect(function(err){if (err) throw err;});
         var objson = [];
         db.query("SELECT ProjectID, LabName, Description FROM Projects ORDER BY ProjectID DESC LIMIT ?, 10", [num], function (err, result, fields) {
             if (err) throw err;
             for (var i = 0 ; i < result.length;i++) {
                 objson.push({
-                    ProjectID:result[i].ProjectID, LabName:result[i].LabName, Description:result[i].Description});
+                    ProjectID:result[i].ProjectID, 
+                    LabName:result[i].LabName, 
+                    Description:result[i].Description});
             }
             res.send(JSON.stringify(objson));
         });

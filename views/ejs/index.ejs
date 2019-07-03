@@ -46,28 +46,13 @@
                 <table borr="0"; style="width: 100vw;height: 80vh;" id="newstable">
                     <thead>
                         <tr>
-                            <th class="col_1">類別</th>
+                            <!-- <th class="col_1">類別</th>
                             <th class="col_2">標題</th>
-                            <th class="col_3">發佈日期</th>
+                            <th class="col_3">發佈日期</th> -->
                         </tr>
                     </thead>
                     <tbody id = "events_tbody">
-                        <% var page=0 %>
-                        <% for( var i = page*10 ; i < Events.length && i < page*10+10; i++){ %>
-                            <tr>
-                                <td align="center" valign="center" class="col_1">
-                                    <%= Events[i].Category %> 
-                                </td>
-                                <td align="center" valign="center" class="col_2">
-                                <a href="/event_content/<%=Events[i].EventID%>">
-                                    <%= Events[i].EventName %> <!--主旨-->
-                                </a>
-                                </td>
-                                <td align="center" valign="center" class="col_3">
-                                    <%= Events[i].CreateDate %>
-                                </td>
-                            </tr>
-                        <% } %>
+                        
                     </tbody>
                 </table>
             </div>
@@ -93,22 +78,7 @@
                     </tr>
                 </thead>
                 <tbody id="projects_tbody">
-                    <% var page=0 %>
-                    <% for( var i = page*10 ; i < Projects.length && i < page*10+10; i++){ %>
-                    	<tr>
-                    		<td align="center" valign="center" class="col_1">
-                    			<%= Projects[i].ProjectID %>
-                    		</td>
-	                    	<td align="center" valign="center" class="col_2">
-	                        <a href="/project_content/<%=Projects[i].ProjectID%>">
-	                        	<%= Projects[i].LabName %>		
-	                        </a>
-	                        </td>
-	                        <td align="center" valign="center" class="col_3">
-	                        	<%= Projects[i].Description %>
-	                    	</td>
-	                    </tr>
-                   	<% } %>
+                    
                 </tbody>
             </table>
             </div>

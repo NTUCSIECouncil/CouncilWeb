@@ -32,3 +32,19 @@
     background-color: red;
     left: 75%;
 }
+.date{
+    font-size: 10px;
+    font-weight: 700;
+    color: #ff8040;
+}
+a.link1{
+    text-decoration:none; 
+    color:#595959;
+} 
+a.link1:hover{
+    text-decoration:none;
+    color:#ff8040;
+} 
+
+
+
