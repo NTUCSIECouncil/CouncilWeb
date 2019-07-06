@@ -1,55 +1,26 @@
-#news{
+.fixbar{
     background-color: darkgray;
     width:20%;
     height:40px;
     position: fixed;
-    left: 0%;
     bottom: 0%;
     color: black;
     font-size: large;
     z-index: 1;
+    text-align:center;
+}
+#news{
+    left: 0%;
 }
 #project{
-    background-color: darkgray;
-    width:20%;
-    height:40px;
-    position: fixed;
     left: 20%;
-    bottom: 0%;
-    color: black;
-    font-size: large;
-    z-index: 1;
 }
 #photo{
-    background-color: darkgray;
-    width:20%;
-    height:40px;
-    position: fixed;
     left: 40%;
-    bottom: 0%;
-    color: black;
-    font-size: large;
-    z-index: 1;
 }
 #intro{
-    background-color: darkgray;
-    width:20%;
-    height:40px;
-    position: fixed;
     left: 60%;
-    bottom: 0%;
-    color: black;
-    font-size: large;
-    z-index: 1;
 }
 #facebook{
-    background-color: darkgray;
-    width:20%;
-    height:40px;
-    position: fixed;
     left: 80%;
-    bottom: 0%;
-    color: black;
-    font-size: large;
-    z-index: 1;
 }

@@ -1,6 +1,7 @@
 <html style="height: 500vh">
 	<head>
 		<title><%=title%></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="/static/CSS/news.css">
         <link rel="stylesheet" href="/static/CSS/barstyle.css">
         <link rel="stylesheet" href="/static/CSS/textstyle.css">
@@ -12,62 +13,60 @@
         <ul id=csie>
             <h1><big><big><big><big><big>CSIE</big></big></big></big></big></h1>
         </ul>
-        <div style="width: 100vw;height: 100vh;float:left;background-color:#002533;color:white;text-align:center;line-height: 100vh">
-            <h1 style="margin-top: 0";><big><big><big> >echo csie_ </big></big></big></h1>
+        <div style="width: 100vw;height: 100vh;float:left;background-color:#002533;color:white;text-align:center;line-height: 100vh; font-size: 45px">
+            <big><big><big> >echo csie_ </big></big></big>
         </div>
-        <a id="news">
-            <p style="margin-top: 0">
-                news
-            </p>
-        </a>
-        <a id="project">
-            <p style="margin-top: 0">
-                project
-            </p>
-        </a>
-        <a id="photo">
-            <p style="margin-top: 0">
-                photo
-            </p>
-        </a>
-        <a id="intro">
-            <p style="margin-top: 0">
-                intro
-            </p>
-        </a>
-        <a id="facebook">
-            <p style="margin-top: 0">
-                facebook
-            </p>
-        </a>
+        <div class="navbar">
+        <div class="fixbar" id="news">
+            <a class=nav-link>
+                News
+            </a>
+        </div>
+        <div class="fixbar" id="project">
+            <a class=nav-link>
+                Project
+            </a>
+        </div>
+        <div class="fixbar" id="photo">
+            <a class=nav-link>
+                Photo
+            </a>
+        </div>
+        <div class="fixbar" id="intro">
+            <a class=nav-link>
+                Intro
+            </a>
+        </div>
+        <div class="fixbar" id="facebook">
+            <a class=nav-link>
+                Facebook
+            </a>
+        </div>
+        </div>
         <!--news-->
-        <div class="page1"; style="width: 100vw;height: 100vh;float:left">
-            <div style="height: 80vh;">
-                <table borr="0"; style="width: 100vw;height: 80vh;" id="newstable">
-                    <thead>
-                        <tr>
-                            <!-- <th class="col_1">類別</th>
-                            <th class="col_2">標題</th>
-                            <th class="col_3">發佈日期</th> -->
-                        </tr>
-                    </thead>
-                    <tbody id = "events_tbody">
+        <div class="container-fluid"; style="width: 100vw;height: 100vh;float:left">
+            <div style="height: 80vh;" class="pt-5">
+            	<h3 class="pl-5" style="color: #002533;">>> 最新消息 News</h3>
+            	<hr>
+              <div id="events_body" class="pt-3">
                         
-                    </tbody>
-                </table>
+              </div>
             </div>
-            <div style="height:20vh; text-align: center;">
-                <button class="button_events previous" onclick="events_previouspage();">上一頁</button>
-
-                <a id="events_curPage">目前頁數：1</a>
-                <a id="events_totalPage"> / 總共頁數：<%= Math.ceil(Events_TotalPage[0].count/10) %></a>
-
-                <button class="button_events next" onclick="events_nextpage();">下一頁</button>
-                
-            </div>
+            <div style="height:10vh;" class="row justify-content-center">
+            	<div class="col col-2 text-center align-self-center">
+                <button class="btn-sm previous" onclick="events_previouspage();">上一頁</button>
+              </div>
+              <div class="col-auto align-self-center">
+                <span id="events_curPage">目前頁數：1</span>
+                <span id="events_totalPage"> / 總共頁數：<%= Math.ceil(Events_TotalPage[0].count/10) %></span>
+              </div>
+              <div class="col col-2 text-center align-self-center">
+                <button class="btn-sm next" onclick="events_nextpage();">下一頁</button>
+              </div>
+          	</div>
         </div>
         <!--project-->
-        <div class="page1"; style="width: 100vw;height: 100vh;float:left;">
+        <div class="container-fluid"; style="width: 100vw;height: 100vh;float:left;">
             <div style="height: 80vh;">
             <table borr="0"; style="width: 100vw;height: 80vh;" id="newstable">
                 <thead>
@@ -82,14 +81,17 @@
                 </tbody>
             </table>
             </div>
-            <div style="height:20vh; text-align: center;">
-                <button class="button_projects previous" onclick="projects_previouspage();">上一頁</button>
-
-                <a id="projects_curPage">目前頁數：1</a>
-                <a id="projects_totalPage"> / 總共頁數：<%= Math.ceil(Projects_TotalPage[0].count/10) %></a>
-
-                <button class="button_projects next" onclick="projects_nextpage();">下一頁</button>
-                
+            <div style="height:10vh;" class="row justify-content-center">
+            	<div class="col col-2 text-center align-self-center">
+                <button class="btn-sm previous" onclick="projects_previouspage();">上一頁</button>
+              </div>
+              <div class="col-auto align-self-center">
+                <span id="projects_curPage">目前頁數：1</span>
+                <span id="projects_totalPage"> / 總共頁數：<%= Math.ceil(Projects_TotalPage[0].count/10) %></span>
+              </div>
+              <div class="col col-2 text-center align-self-center">
+                <button class="btn-sm next" onclick="projects_nextpage();">下一頁</button>
+              </div>
             </div>
         </div>
         <!--photo-->

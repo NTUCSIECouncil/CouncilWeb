@@ -11,7 +11,6 @@ router
     	var projects, events;
     	db.query('SELECT COUNT(1) AS count FROM Projects; SELECT COUNT(1) AS count FROM Events;', function(err, data) {
             if (err) { console.log(err); return; }
-            console.log(data[1][0]);
     	    res.render('index', { 
                 title: title,
                 Projects_TotalPage: data[0], Events_TotalPage: data[1]

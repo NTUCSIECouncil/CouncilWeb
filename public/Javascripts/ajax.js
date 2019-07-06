@@ -20,20 +20,20 @@ function events_getData(page)
             if (list.length == 0) {
                 return;
             }
-            $("#events_tbody").empty();
+            $("#events_body").empty();
             $.each(list,function(index,array){
-                row += "<tr>" +
-                    "<td align='center' valign='center' class='col_1 date'>" +
+                row += "<div class='row justify-content-center p-2'>" +
+                    "<div align='center' valign='center' class='col-auto date'>" +
                         array['CreateDate'] + 
-                    "</td>" +
-                    "<td align='center' valign='center' class='col_2'>" +
-                        "[" + array['Category'] + "]" +
-                    "</td>" +
-                    "<td align='center' valign='center' class='col_3'>" +
-                        "<a href='/event_content/" + array['EventID'] + "' class='link1'>" + array['EventName'] + "</a>" +
-                    "</td></tr>";
+                    "</div>" +
+                    "<div valign='center' class='col-4'>" +
+                        "<a href='/event_content/" + array['EventID'] + "' class='link1'>" +
+                            "[" + array['Category'] + "] " +
+                            array['EventName'] + 
+                        "</a>" +
+                    "</div></div>";
             });
-            $("#events_tbody").append(row);
+            $("#events_body").append(row);
         },
         error: function(jqXHR, textStatus, errorThrown){
             /*jqXHR*/
