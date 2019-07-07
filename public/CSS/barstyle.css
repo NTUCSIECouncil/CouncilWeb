@@ -9,16 +9,16 @@
     z-index: 1;
     text-align:center;
 }
-#news{
+#home{
     left: 0%;
 }
-#project{
+#news{
     left: 20%;
 }
-#photo{
+#project{
     left: 40%;
 }
-#intro{
+#about{
     left: 60%;
 }
 #facebook{

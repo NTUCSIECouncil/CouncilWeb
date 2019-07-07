@@ -23,7 +23,7 @@ function events_getData(page)
             $("#events_body").empty();
             $.each(list,function(index,array){
                 row += "<div class='row justify-content-center p-2'>" +
-                    "<div align='center' valign='center' class='col-auto date'>" +
+                    "<div align='center' valign='center' class='col-1 date'>" +
                         array['CreateDate'] + 
                     "</div>" +
                     "<div valign='center' class='col-4'>" +

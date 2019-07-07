@@ -1,9 +1,8 @@
 $(function(){
-    var $csie = $('#csie'),
+    var $csie = $('#home'),
         $news = $('#news'),
         $project = $('#project'),
-        $photo = $('#photo'),
-        $intro = $('#intro'),
+        $intro = $('#about'),
         gospeed = 799;
     var intViewportHeight = window.innerHeight;
     $csie.click(function(e){
@@ -18,12 +17,8 @@ $(function(){
         intViewportHeight = window.innerHeight
         $('html,body').animate({scrollTop:intViewportHeight*2},gospeed);
     });
-    $photo.click(function(e){
-        intViewportHeight = window.innerHeight
-        $('html,body').animate({scrollTop:intViewportHeight*3},gospeed);
-    });
     $intro.click(function(e){
         intViewportHeight = window.innerHeight
-        $('html,body').animate({scrollTop:intViewportHeight*4},gospeed);
+        $('html,body').animate({scrollTop:intViewportHeight*3},gospeed);
     });
 });

@@ -35,6 +35,12 @@
     text-decoration:none;
     color:#ff8040;
 } 
-
+.striped-border {
+    border-width: 3px;
+    width: 30%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
 
 
