@@ -1,50 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
 
-  <body>
+<body>
+  <div class="container">
     <h1><%= title %></h1>
-    <table>
+    <table class="table" style="table-layout:fixed;word-break:break-all;">
       <tr>
-	<th></th>
-	<th></th>
-        <th>ID</th>
+      	<th width="8%"></th>
+      	<th width="8%"></th>
+        <th width="5%">ID</th>
+        <th>ProfessorName_ZH</th>
+        <th>ProfessorName_EN</th>
         <th>LabName</th>
         <th>Description</th>
       </tr>
       <tr>
-	<form name="addproject" action="projects/add" method="post" accept-charset="utf-8" >
+        <form name="addproject" action="projects/add" method="post" accept-charset="utf-8" >
           <td><input type="submit" value="Add"></td>
-	  <td><input type="reset" value="Reset"></td>
-	  <td></td>
-          <td><input type="text" name="LabName" placeholder="labname"></td>
-	  <td><textarea name="Description" placeholder="description"></textarea></td>
-	</form>
+      	  <td><input type="reset" value="Reset"></td>
+      	  <td></td>
+          <td><input class="form-control" type="text" name="ProfessorName_ZH" placeholder="ProfessorName_ZH"></td>
+          <td><input class="form-control" type="text" name="ProfessorName_EN" placeholder="ProfessorName_EN"></td>
+          <td><input class="form-control" type="text" name="LabName" placeholder="labname"></td>
+          <td><textarea class="form-control" name="Description" placeholder="description"></textarea></td>
+        </form>
       </tr>
       <% for ( var i = 0 ; i < Projects.length ; i++){ %>
-         <tr>
-	   <td>
-	     <form name="deleteproject" action="projects/delete" method="post" accept-charset="utf-8" >
-	       <input type="hidden" name="del" value=<%= Projects[i].ProjectID  %> >
-	       <input type="submit" value="Delete">
-	     </form>
-	   </td>
-	   <td>
-	     <form name="modifyproject" action="projects/<%= Projects[i].ProjectID  %>"
-		   method="get" accept-charset="utf-8" >
-	       <input type="submit" value="Modify">
-	     </form>
-	   </td>
-           <td><%= Projects[i].ProjectID  %></td>
-           <td><%= Projects[i].LabName  %></td>
-	   <td><%= Projects[i].Description  %></td>
-         </tr>
-         <% } %>
+      <tr>
+        <td>
+          <form name="deleteproject" action="projects/delete" method="post" accept-charset="utf-8" >
+            <input type="hidden" name="del" value=<%= Projects[i].ProjectID  %> >
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+        <td>
+          <form name="modifyproject" action="projects/<%= Projects[i].ProjectID  %>"
+          method="get" accept-charset="utf-8" >
+            <input type="submit" value="Modify">
+          </form>
+        </td>
+        <td><%= Projects[i].ProjectID  %></td>
+        <td><%= Projects[i].ProfessorName_ZH  %></td>
+        <td><%= Projects[i].ProfessorName_EN  %></td>
+        <td><%= Projects[i].LabName  %></td>
+        <td class="text-truncate"><%= Projects[i].Description  %></td>
+      </tr>
+      <% } %>
     </table>
     <input type="button" value="Index" onclick="javascript: location.href='/admin/index'">
+  </div>
 </body>
 
 </html>

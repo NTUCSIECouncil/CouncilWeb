@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
 
-  <body>
+<body>
+  <div class="container">
     <form name="modifyproject" action="modify" method="post" accept-charset="utf-8" >
     <input type="hidden" name="ProjectID" value="<%= Projects.ProjectID %>">
       <h1><%= title %></h1>
-      <div>
-        <label>labname: </label>
-        <input type="text" name="LabName" value="<%= Projects.LabName %>" placeholder="<%= Projects.LabName %>">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">ProfessorName_ZH</label>
+        <input class="col-sm-10 form-control" type="text" name="ProfessorName_ZH" value="<%= Projects.ProfessorName_ZH %>" placeholder="<%= Projects.ProfessorName_ZH %>">
       </div>
-      <div>
-        <label>description: </label>
-	<textarea name="Description" value="<%= Projects.Description %>"
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">ProfessorName_EN</label>
+        <input class="col-sm-10 form-control" type="text" name="ProfessorName_EN" value="<%= Projects.ProfessorName_EN %>" placeholder="<%= Projects.ProfessorName_EN %>">
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">LabName</label>
+        <input class="col-sm-10 form-control" type="text" name="LabName" value="<%= Projects.LabName %>" placeholder="<%= Projects.LabName %>">
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Description</label>
+        <textarea row="30" class="col-sm-10 form-control" name="Description" value="<%= Projects.Description %>"
 		  placeholder="<%= Projects.Description %>"><%= Projects.Description %></textarea>
       </div>
       <div>
@@ -24,6 +34,7 @@
         <input type="button" value="Back" onclick="javascript: location.href='/admin/projects'">
       </div>
     </form>
-  </body>
+  </div>
+</body>
 
 </html>
