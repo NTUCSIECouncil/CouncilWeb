@@ -2,7 +2,7 @@ var events_curPage = 1, projects_curPage = 1;
 
 $(document).ready(function(){
     events_getData(events_curPage-1);
-    projects_getData(projects_curPage-1);
+    // projects_getData(projects_curPage-1);
 });
 
 /*Events*/
@@ -23,7 +23,7 @@ function events_getData(page)
             $("#events_body").empty();
             $.each(list,function(index,array){
                 row += "<div class='row justify-content-center p-2'>" +
-                    "<div align='center' valign='center' class='col-1 date'>" +
+                    "<div align='center' valign='center' class='col-auto date'>" +
                         array['CreateDate'] + 
                     "</div>" +
                     "<div valign='center' class='col-4'>" +
@@ -74,25 +74,33 @@ function events_nextpage()
 }
 
 /*Projects*/
-function projects_getData(page)
+function projects_getData(id)
 {
-    return $.ajax({
+    console.log(id);
+    $.ajax({
         type: 'POST',
         url: "/projects_ajax",
-        data: {'pageNum':page},
+        data: {'ProjectID':id},
         dataType: 'json',
         
         success: function(json){
             var row = "";
-            var list = json;
-            if (list.length == 0) {
-                return;
-            }
-            $("#projects_tbody").empty();
-            $.each(list,function(index,array){
-                row += "<tr><td align='center' valign='center' class='col_1'>" + array['ProjectID'] + "</td><td align='center' valign='center' class='col_2'><a href='/project_content/"+ array['ProjectID'] +"'>"+ array['LabName'] + "</a></td><td align='center' valign='center' class='col_3'>" + array['Description'] + "</td></tr>";
-            });
-            $("#projects_tbody").append(row);
+            $("#project_body").empty();
+            json['Description'] = json['Description'].replace(/\r\n/g, "<br>");
+            json['Description'] = json['Description'].replace(/\n/g, "<br>");
+            row += "<dl class='row'>" +
+                        "<dd class='col-5'>" +
+                            json['ProfessorName_ZH']+" "+json['ProfessorName_EN'] +
+                        "</dd>" +
+                        "<dd class='col-7'>" +
+                            json['LabName'] +
+                        "</dd>" +
+                        "<dd class='col' style='overflow-y: scroll;height: 70vh;'>" +
+                            json['Description'] +
+                        "</dd>" +
+                    "</dl>"
+            $("#project_body").append(row);
+            console.log(row);
         },
         error: function(jqXHR, textStatus, errorThrown){
             /*jqXHR*/

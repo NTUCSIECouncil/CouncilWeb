@@ -9,11 +9,11 @@ router
     	var db = req.con;
     	var title = 'NTU CSIE WEB';
     	var projects, events;
-    	db.query('SELECT COUNT(1) AS count FROM Projects; SELECT COUNT(1) AS count FROM Events;', function(err, data) {
+    	db.query('SELECT COUNT(1) AS count FROM Projects; SELECT COUNT(1) AS count FROM Events; SELECT ProjectID, ProfessorName_ZH from Projects;', function(err, data) {
             if (err) { console.log(err); return; }
     	    res.render('index', { 
                 title: title,
-                Projects_TotalPage: data[0], Events_TotalPage: data[1]
+                Projects_TotalPage: data[0], Events_TotalPage: data[1], Projects: data[2],
             });
     	});
     })
@@ -88,18 +88,16 @@ router
     })
 
     .post('/projects_ajax', function(req, res, next) {
-        var skip = req.body.pageNum;
-        var num = parseInt(skip)*10;
+        var id = req.body.ProjectID;
         
         var db = req.con;
-        var objson = [];
-        db.query("SELECT ProjectID, LabName, Description FROM Projects ORDER BY ProjectID DESC LIMIT ?, 10", [num], function (err, result, fields) {
+        db.query("SELECT ProfessorName_ZH, ProfessorName_EN, LabName, Description FROM Projects WHERE ProjectID = ?", [id], function (err, result, fields) {
             if (err) throw err;
-            for (var i = 0 ; i < result.length;i++) {
-                objson.push({
-                    ProjectID:result[i].ProjectID, 
-                    LabName:result[i].LabName, 
-                    Description:result[i].Description});
+            var objson = {
+                ProfessorName_ZH:result[0].ProfessorName_ZH, 
+                ProfessorName_EN:result[0].ProfessorName_EN, 
+                LabName:result[0].LabName, 
+                Description: result[0].Description
             }
             res.send(JSON.stringify(objson));
         });

@@ -20,7 +20,7 @@ CREATE TABLE EventTagsRelation (
 CREATE TABLE Events (
        EventID INT NOT NULL AUTO_INCREMENT,
        EventName NVARCHAR(100),
-	   Category NVARCHAR(100),
+	Category NVARCHAR(100),
        Priority TINYINT,
        PriorityUntil DATE,
        CreateDate DATETIME,
@@ -45,7 +45,7 @@ CREATE TABLE Projects (
        LabName NVARCHAR(100),
        ProfessorName_ZH NVARCHAR(100),
        ProfessorName_EN NVARCHAR(100),
-       Description NVARCHAR(2000),
+       Description NVARCHAR(4000),
 	PRIMARY KEY (ProjectID)
 );
 

@@ -124,6 +124,8 @@ router
 	    if (data.length != 0) id = data[data.length-1].ProjectID + 1;
 	    var sql = {
 		ProjectID: id,
+		ProfessorName_ZH: req.body.ProfessorName_ZH,
+		ProfessorName_EN: req.body.ProfessorName_EN,
 		LabName: req.body.LabName,
 		Description: req.body.Description
 	    };
@@ -147,6 +149,8 @@ router
 	var db = req.con;
 	var sql = {
 	    ProjectID: req.body.ProjectID,
+	    ProfessorName_ZH: req.body.ProfessorName_ZH,
+		ProfessorName_EN: req.body.ProfessorName_EN,
 	    LabName: req.body.LabName,
 	    Description: req.body.Description
 	};
