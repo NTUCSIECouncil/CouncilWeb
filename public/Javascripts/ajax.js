@@ -117,25 +117,3 @@ function projects_getData(id)
     });
 }
 
-function projects_previouspage()
-{
-    if (projects_curPage > 1) {
-        var i = projects_curPage-2;
-        projects_getData(i).done(function(res) {
-            if (res.length > 0) {
-                projects_curPage--;
-                document.getElementById("projects_curPage").innerHTML = "目前頁數："+projects_curPage;
-            }
-        });
-    }
-}
-
-function projects_nextpage()
-{
-    projects_getData(projects_curPage).done(function(res) {
-        if (res.length > 0) {
-            projects_curPage++;
-            document.getElementById("projects_curPage").innerHTML = "目前頁數："+projects_curPage;
-        }
-    });
-}

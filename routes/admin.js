@@ -43,10 +43,6 @@ router
 	res.redirect('/admin/events');
     })
 
-    .get('/events/add', function(req, res){
-	res.render('admin/add/events', { title: 'Add Events'});
-    })
-
     .post('/events/add', function(req, res){
 	var db = req.con;
 	db.query('SELECT * FROM Events', function(err, data) {
@@ -110,10 +106,6 @@ router
 	    if (err) console.log(err);
 	});
 	res.redirect('/admin/projects');
-    })
-
-    .get('/projects/add', function(req, res){
-	res.render('admin/add/projects', { title: 'Add Project'});
     })
 
     .post('/projects/add', function(req, res){

@@ -59,14 +59,6 @@ router
     	});
     })
 
-    .get('/project_content/:id', function(req, res){
-    	var db = req.con;
-    	db.query("SELECT * FROM Projects WHERE ProjectID = ?", req.params.id, function(err, data) {
-                if (err) console.log(err);
-    	    res.render('project_content', { title: 'More about Project', Projects: data[0] });
-    	});
-    })
-
     .post('/events_ajax', function(req, res, next) {
         var skip = req.body.pageNum;
         var num = parseInt(skip)*10;
