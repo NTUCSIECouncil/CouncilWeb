@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
 
-  <body>
+<body>
+  <div class="container">
     <h1><%= title %></h1>
-    <table>
+    <div class="row justify-content-end">
+      <input class="col-auto" type="button" value="Index" onclick="javascript: location.href='/admin/index'">
+    </div>
+    <table class="table" style="table-layout:fixed;word-break:break-all;">
       <tr>
-	<th></th>
-	<th></th>
-        <th>ID</th>
-        <th>Category</th>
-        <th>EventName</th>
-        <th>UpdateDate</th>   <!--CreateDate-->
+      	<th width="8%"></th>
+      	<th width="8%"></th>
+        <th width="5%">ID</th>
+        <th width="12%">UpdateDate</th>   <!--CreateDate-->
+        <th width="12%">Category</th>
+        <th width="20%">EventName</th>
         <th>Content</th>
       </tr>
       <tr>
-	<form name="addevent" action="events/add" method="post" accept-charset="utf-8" >
-      <td><input type="submit" value="Add"></td>
-	  <td><input type="reset" value="Reset"></td>
-	  <td></td>
-      <td><input type="text" name="Category" placeholder="category"></td>
-      <td><input type="text" name="EventName" placeholder="eventname"></td>
-      <td></td>
-	  <td><textarea name="Content" placeholder="content"></textarea></td>
-	</form>
+        <form name="addevent" action="events/add" method="post" accept-charset="utf-8" >
+          <td><input type="submit" value="Add"></td>
+      	  <td><input type="reset" value="Reset"></td>
+      	  <td></td>
+          <td></td>
+          <td><input class="form-control" type="text" name="Category" placeholder="category"></td>
+          <td><input class="form-control" type="text" name="EventName" placeholder="eventname"></td>
+          <td><textarea class="form-control" name="Content" placeholder="content"></textarea></td>
+         </form>
       </tr>
       <% for ( var i = 0 ; i < Events.length ; i++){ %>
-         <tr>
-           <td>
-             <form name="deleteevent" action="events/delete" method="post" accept-charset="utf-8" >
-               <input type="hidden" name="del" value=<%= Events[i].EventID  %> >
-               <input type="submit" value="Delete">
-             </form>
-           </td>
-           <td>
-             <form name="modifyevent" action="events/<%= Events[i].EventID  %>"
-               method="get" accept-charset="utf-8" >
-               <input type="submit" value="Modify">
-             </form>
-           </td>
-           <td><%= Events[i].EventID  %></td>
-           <td><%= Events[i].Category  %></td>
-           <td><%= Events[i].EventName  %></td>
-           <td><%= Events[i].CreateDate  %></td>
-           <td><%= Events[i].Content  %></td>
-        </tr>
+      <tr>
+        <td>
+          <form name="deleteevent" action="events/delete" method="post" accept-charset="utf-8" >
+            <input type="hidden" name="del" value=<%= Events[i].EventID  %> >
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+        <td>
+          <form name="modifyevent" action="events/<%= Events[i].EventID  %>"
+          method="get" accept-charset="utf-8" >
+            <input type="submit" value="Modify">
+          </form>
+        </td>
+        <td><%= Events[i].EventID  %></td>
+        <td class="text-truncate"><%= Events[i].CreateDate  %></td>
+        <td class="text-truncate"><%= Events[i].Category  %></td>
+        <td class="text-truncate"><%= Events[i].EventName  %></td>
+        <td class="text-truncate"><%= Events[i].Content  %></td>
+      </tr>
     <% } %>
     </table>
-    <input type="button" value="Index" onclick="javascript: location.href='/admin/index'">
+  </div>
 </body>
 
 </html>
